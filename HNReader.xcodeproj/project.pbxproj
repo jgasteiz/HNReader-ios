@@ -14,8 +14,9 @@
 		5902E3AE1AC1E5EC008F2B85 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5902E3AD1AC1E5EC008F2B85 /* libicucore.dylib */; };
 		5902E3B01AC1E5F4008F2B85 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5902E3AF1AC1E5F4008F2B85 /* libc++.dylib */; };
 		5902E3B21AC1F514008F2B85 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902E3B11AC1F514008F2B85 /* Story.swift */; };
+		5910AE7A1AC33E7700129948 /* StoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5910AE791AC33E7700129948 /* StoryDetailViewController.swift */; };
 		59C4EB971ABB437C008E152E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C4EB961ABB437C008E152E /* AppDelegate.swift */; };
-		59C4EB991ABB437C008E152E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C4EB981ABB437C008E152E /* ViewController.swift */; };
+		59C4EB991ABB437C008E152E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C4EB981ABB437C008E152E /* TableViewController.swift */; };
 		59C4EB9C1ABB437C008E152E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59C4EB9A1ABB437C008E152E /* Main.storyboard */; };
 		59C4EB9E1ABB437C008E152E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59C4EB9D1ABB437C008E152E /* Images.xcassets */; };
 		59C4EBA11ABB437C008E152E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C4EB9F1ABB437C008E152E /* LaunchScreen.xib */; };
@@ -41,10 +42,11 @@
 		5902E3AD1AC1E5EC008F2B85 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		5902E3AF1AC1E5F4008F2B85 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		5902E3B11AC1F514008F2B85 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		5910AE791AC33E7700129948 /* StoryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryDetailViewController.swift; sourceTree = "<group>"; };
 		59C4EB911ABB437C008E152E /* HNReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HNReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59C4EB951ABB437C008E152E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59C4EB961ABB437C008E152E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		59C4EB981ABB437C008E152E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		59C4EB981ABB437C008E152E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		59C4EB9B1ABB437C008E152E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		59C4EB9D1ABB437C008E152E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		59C4EBA01ABB437C008E152E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -115,7 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				59C4EB961ABB437C008E152E /* AppDelegate.swift */,
-				59C4EB981ABB437C008E152E /* ViewController.swift */,
+				59C4EB981ABB437C008E152E /* TableViewController.swift */,
 				59C4EB9A1ABB437C008E152E /* Main.storyboard */,
 				59C4EB9D1ABB437C008E152E /* Images.xcassets */,
 				59C4EB9F1ABB437C008E152E /* LaunchScreen.xib */,
@@ -123,6 +125,7 @@
 				59C4EBB61ABB4408008E152E /* HNFetchTask.swift */,
 				59CB76611AC1E1A800A098B0 /* HNReader-Bridging-Header.h */,
 				5902E3B11AC1F514008F2B85 /* Story.swift */,
+				5910AE791AC33E7700129948 /* StoryDetailViewController.swift */,
 			);
 			path = HNReader;
 			sourceTree = "<group>";
@@ -253,7 +256,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59C4EB991ABB437C008E152E /* ViewController.swift in Sources */,
+				59C4EB991ABB437C008E152E /* TableViewController.swift in Sources */,
+				5910AE7A1AC33E7700129948 /* StoryDetailViewController.swift in Sources */,
 				59C4EB971ABB437C008E152E /* AppDelegate.swift in Sources */,
 				59C4EBB71ABB4408008E152E /* HNFetchTask.swift in Sources */,
 				5902E3B21AC1F514008F2B85 /* Story.swift in Sources */,

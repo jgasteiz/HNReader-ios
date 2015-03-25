@@ -10,30 +10,32 @@ import Foundation
 
 class HNFetchTask {
     
-    // *** STEP 1: STORE FIREBASE REFERENCES
-    var topStoriesRef: Firebase!
+    var topStoriesRef: Firebase
+    var itemRef: Firebase
     var storiesArray: [Story] = []
     
     init() {
-        // *** STEP 2: SETUP FIREBASE
         topStoriesRef = Firebase(url: "https://hacker-news.firebaseio.com/v0/topstories")
+        itemRef = Firebase(url: "https://hacker-news.firebaseio.com/v0/item/")
     }
     
-    func debounce( delay:NSTimeInterval, queue:dispatch_queue_t, action: (()->()) ) -> ()->() {
-        var lastFireTime:dispatch_time_t = 0
+    func debounce(delay: NSTimeInterval, queue: dispatch_queue_t, action: (() -> ())) -> () -> () {
+        var lastFireTime: dispatch_time_t = 0
         let dispatchDelay = Int64(delay * Double(NSEC_PER_SEC))
         
         return {
-            lastFireTime = dispatch_time(DISPATCH_TIME_NOW,0)
+            lastFireTime = dispatch_time(DISPATCH_TIME_NOW, 0)
             dispatch_after(
                 dispatch_time(
                     DISPATCH_TIME_NOW,
                     dispatchDelay
                 ),
                 queue) {
-                    let now = dispatch_time(DISPATCH_TIME_NOW,0)
+                    let now = dispatch_time(DISPATCH_TIME_NOW, 0)
                     let when = dispatch_time(lastFireTime, dispatchDelay)
                     if now >= when {
+                        lastFireTime = dispatch_time(DISPATCH_TIME_NOW, 0)
+                        println("Debounced worked: \(now), \(when)")
                         action()
                     }
             }
@@ -42,25 +44,42 @@ class HNFetchTask {
     
     func getTopStories(onTaskDone: (stories: [Story]) -> Void, onTaskError: () -> Void) {
         
+        storiesArray = []
+        
         let debouncedTaskDone = debounce(
-            NSTimeInterval(1),
+            NSTimeInterval(0.5),
             queue: dispatch_get_main_queue(),
-            {() in
+            { _ in
+                println("DEBOUNCE in task")
                 onTaskDone(stories: self.storiesArray)
             }
         )
         
-        // *** STEP 3: RECEIVE DATA FROM FIREBASE
-        topStoriesRef.queryLimitedToFirst(30).observeEventType(.ChildAdded, withBlock: { (snapshot) in
-            let url = "https://hacker-news.firebaseio.com/v0/item/\(snapshot.value)"
+        // Fetch and observe the first 30 items in the Top Stories
+        topStoriesRef.queryLimitedToFirst(30).observeSingleEventOfType(.Value, withBlock: { (idListSnapshot) in
+            
+            let storyIdList: [Int] = idListSnapshot.value as [Int]
+            
+            for storyId in storyIdList {
                 
-            var itemRef = Firebase(url: "https://hacker-news.firebaseio.com/v0/item/\(snapshot.value)") as Firebase!
-            var story = Story()
-            self.storiesArray.append(story)
-            itemRef.observeEventType(.ChildAdded, withBlock: { (snapshot: FDataSnapshot!) in
-                story.setProperty(snapshot.key, value: snapshot.value)
-                debouncedTaskDone()
-            })
+                // Fetch and observe the item in place.
+                self.itemRef.childByAppendingPath(String(storyId)).observeSingleEventOfType(.Value, withBlock: { storySnapshot in
+                    
+                    let id = storySnapshot.value["id"] as Int!
+                    let title = storySnapshot.value["title"] as String!
+                    let author = storySnapshot.value["by"] as String?
+                    let time = storySnapshot.value["time"] as Double!
+                    let type = storySnapshot.value["type"] as String!
+                    let url = storySnapshot.value["url"] as String?
+                    let score = storySnapshot.value["score"] as Int?
+                    
+                    let story = Story(id: id, title: title, author: author, time: time, type: type, url: url, score: score)
+                    
+                    self.storiesArray.append(story)
+                    
+                    debouncedTaskDone()
+                })
+            }
         })
     }
 }
