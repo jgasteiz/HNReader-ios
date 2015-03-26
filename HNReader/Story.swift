@@ -9,15 +9,18 @@
 import Foundation
 
 class Story {
+    
+    let hackerWebURL = "http://cheeaun.github.io/hackerweb/#/item/"
+    
     var id: Int
     var title: String
-    var author: String?
-    var score: Int?
+    var author: String
+    var score: Int
     var time: Double
     var type: String
-    var url: String?
+    var url: String
     
-    init(id: Int, title: String, author: String?, time: Double, type: String, url: String?, score: Int?) {
+    init(id: Int, title: String, author: String, time: Double, type: String, url: String, score: Int) {
         self.id = id
         self.title = title
         self.author = author
@@ -25,5 +28,12 @@ class Story {
         self.type = type
         self.url = url
         self.score = score
-    }    
+    }
+    
+    func getURL() -> String {
+        if self.url != "" {
+            return self.url
+        }
+        return "\(self.hackerWebURL)\(self.id)"
+    }
 }

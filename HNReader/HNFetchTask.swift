@@ -67,11 +67,11 @@ class HNFetchTask {
                     
                     let id = storySnapshot.value["id"] as Int!
                     let title = storySnapshot.value["title"] as String!
-                    let author = storySnapshot.value["by"] as String?
+                    let author = storySnapshot.value["by"] as String!
                     let time = storySnapshot.value["time"] as Double!
                     let type = storySnapshot.value["type"] as String!
-                    let url = storySnapshot.value["url"] as String?
-                    let score = storySnapshot.value["score"] as Int?
+                    let url = storySnapshot.value["url"] as String!
+                    let score = storySnapshot.value["score"] as Int!
                     
                     let story = Story(id: id, title: title, author: author, time: time, type: type, url: url, score: score)
                     
