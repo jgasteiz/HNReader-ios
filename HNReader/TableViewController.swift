@@ -26,46 +26,15 @@ class TableViewController: UITableViewController {
         let refreshButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: "refreshPosts:")
         self.navigationItem.rightBarButtonItem = refreshButton
 
-        initializeSpinner()
-        
-        refreshPosts(self)
-    }
-    
-    func onGetPostsSuccess(stories: [Story]) {
-        hideSpinner()
-        storyList = stories
-        println(storyList.count)
-        tableView.reloadData()
-    }
-    
-    func onGetPostsError() {
-        // Do something here
-    }
-    
-    func refreshPosts(sender: AnyObject) {
-        storyList = []
-        tableView.reloadData()
-        showSpinner()
-        hnFetchTask.getTopStories(onGetPostsSuccess, onTaskError: onGetPostsError)
-    }
-    
-    func showSpinner() {
-        activityIndicator.startAnimating()
-        activityIndicator.hidden = false
-    }
-    
-    func hideSpinner() {
-        activityIndicator.hidden = true
-        activityIndicator.stopAnimating()
-    }
-    
-    func initializeSpinner() {
+        // Initialize spinner
         activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50))
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
         view.addSubview(activityIndicator)
         activityIndicator.hidden = true
+        
+        refreshPosts(self)
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,20 +42,26 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
+        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("StoryCell") as UITableViewCell
+        
+        var indexLabel: UILabel = cell.viewWithTag(110) as UILabel!
+        var titleLabel: UILabel = cell.viewWithTag(111) as UILabel!
+        var urlLabel: UILabel = cell.viewWithTag(112) as UILabel!
+        var descriptionLabel: UILabel = cell.viewWithTag(113) as UILabel!
         
         let title = self.storyList[indexPath.row].title
-        let author = self.storyList[indexPath.row].author!
-        cell.textLabel?.text = "\(indexPath.row + 1) - \(title), by \(author)"
+        let author = self.storyList[indexPath.row].author
+        let score = self.storyList[indexPath.row].score
+        var url = self.storyList[indexPath.row].getURL()
+
+        indexLabel.text = "\(indexPath.row + 1)"
+        titleLabel.text = title
+        urlLabel.text = url
+        descriptionLabel.text = "\(score) points, by \(author)"
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        performSegueWithIdentifier("showDetail", sender: self)
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -97,14 +72,34 @@ class TableViewController: UITableViewController {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
                 
                 let story: Story = self.storyList[indexPath.row]
-                // let storyUrl = NSURL(string: story.url!)!
 
-                let controller = (segue.destinationViewController as UINavigationController).topViewController as StoryDetailViewController
+                let controller = segue.destinationViewController as StoryDetailViewController
                 
                 controller.storyTitle = story.title
-                controller.storyURL = NSURL(string: story.url!)
+                controller.storyURL = NSURL(string: story.getURL())
             }
         }
+    }
+    
+    func onGetPostsSuccess(stories: [Story]) {
+        activityIndicator.hidden = true
+        activityIndicator.stopAnimating()
+        
+        storyList = stories
+        tableView.reloadData()
+    }
+    
+    func onGetPostsError() {
+        // Do something here
+    }
+    
+    func refreshPosts(sender: AnyObject) {
+        activityIndicator.startAnimating()
+        activityIndicator.hidden = false
+        
+        storyList = []
+        tableView.reloadData()
+        hnFetchTask.getTopStories(onGetPostsSuccess, onTaskError: onGetPostsError)
     }
 }
 
