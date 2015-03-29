@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		5902E3A61AC1E5B1008F2B85 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5902E3A51AC1E5B1008F2B85 /* Security.framework */; };
 		5902E3A81AC1E5C1008F2B85 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5902E3A71AC1E5C1008F2B85 /* CFNetwork.framework */; };
-		5902E3AA1AC1E5D6008F2B85 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5902E3A91AC1E5D6008F2B85 /* Firebase.framework */; };
 		5902E3AC1AC1E5E4008F2B85 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5902E3AB1AC1E5E4008F2B85 /* SystemConfiguration.framework */; };
 		5902E3AE1AC1E5EC008F2B85 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5902E3AD1AC1E5EC008F2B85 /* libicucore.dylib */; };
 		5902E3B01AC1E5F4008F2B85 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5902E3AF1AC1E5F4008F2B85 /* libc++.dylib */; };
 		5902E3B21AC1F514008F2B85 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902E3B11AC1F514008F2B85 /* Story.swift */; };
 		5910AE7A1AC33E7700129948 /* StoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5910AE791AC33E7700129948 /* StoryDetailViewController.swift */; };
+		5913CD511AC722BA007CF209 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5913CD501AC722BA007CF209 /* Firebase.framework */; };
 		59C4EB971ABB437C008E152E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C4EB961ABB437C008E152E /* AppDelegate.swift */; };
 		59C4EB991ABB437C008E152E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C4EB981ABB437C008E152E /* TableViewController.swift */; };
 		59C4EB9C1ABB437C008E152E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59C4EB9A1ABB437C008E152E /* Main.storyboard */; };
@@ -37,12 +37,12 @@
 /* Begin PBXFileReference section */
 		5902E3A51AC1E5B1008F2B85 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5902E3A71AC1E5C1008F2B85 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		5902E3A91AC1E5D6008F2B85 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../../Downloads/Firebase.framework; sourceTree = "<group>"; };
 		5902E3AB1AC1E5E4008F2B85 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5902E3AD1AC1E5EC008F2B85 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		5902E3AF1AC1E5F4008F2B85 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		5902E3B11AC1F514008F2B85 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		5910AE791AC33E7700129948 /* StoryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryDetailViewController.swift; sourceTree = "<group>"; };
+		5913CD501AC722BA007CF209 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		59C4EB911ABB437C008E152E /* HNReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HNReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59C4EB951ABB437C008E152E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59C4EB961ABB437C008E152E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,9 +65,9 @@
 				5902E3B01AC1E5F4008F2B85 /* libc++.dylib in Frameworks */,
 				5902E3AE1AC1E5EC008F2B85 /* libicucore.dylib in Frameworks */,
 				5902E3AC1AC1E5E4008F2B85 /* SystemConfiguration.framework in Frameworks */,
+				5913CD511AC722BA007CF209 /* Firebase.framework in Frameworks */,
 				5902E3A81AC1E5C1008F2B85 /* CFNetwork.framework in Frameworks */,
 				5902E3A61AC1E5B1008F2B85 /* Security.framework in Frameworks */,
-				5902E3AA1AC1E5D6008F2B85 /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +87,7 @@
 				5902E3AF1AC1E5F4008F2B85 /* libc++.dylib */,
 				5902E3AD1AC1E5EC008F2B85 /* libicucore.dylib */,
 				5902E3AB1AC1E5E4008F2B85 /* SystemConfiguration.framework */,
-				5902E3A91AC1E5D6008F2B85 /* Firebase.framework */,
+				5913CD501AC722BA007CF209 /* Firebase.framework */,
 				5902E3A71AC1E5C1008F2B85 /* CFNetwork.framework */,
 				5902E3A51AC1E5B1008F2B85 /* Security.framework */,
 			);

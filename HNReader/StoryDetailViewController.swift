@@ -22,6 +22,13 @@ class StoryDetailViewController: UIViewController {
         webView.loadRequest(request)
     }
     
+    @IBAction func shareStory(sender: UIButton) {
+        let objectsToShare = [storyURL!]
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        
+        self.presentViewController(activityVC, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
