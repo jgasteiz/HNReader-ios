@@ -35,7 +35,6 @@ class HNFetchTask {
                     let when = dispatch_time(lastFireTime, dispatchDelay)
                     if now >= when {
                         lastFireTime = dispatch_time(DISPATCH_TIME_NOW, 0)
-                        println("Debounced worked: \(now), \(when)")
                         action()
                     }
             }
@@ -50,7 +49,6 @@ class HNFetchTask {
             NSTimeInterval(0.5),
             queue: dispatch_get_main_queue(),
             { _ in
-                println("DEBOUNCE in task")
                 onTaskDone(stories: self.storiesArray)
             }
         )
