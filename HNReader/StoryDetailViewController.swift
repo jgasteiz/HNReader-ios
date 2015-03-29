@@ -22,16 +22,20 @@ class StoryDetailViewController: UIViewController {
         webView.loadRequest(request)
     }
     
-    @IBAction func shareStory(sender: UIButton) {
+    func shareStory(sender: UIButton) {
         let objectsToShare = [storyURL!]
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-        
+        activityVC.popoverPresentationController?.sourceView = sender
         self.presentViewController(activityVC, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
+
+        let shareButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "shareStory:")
+        self.navigationItem.rightBarButtonItem = shareButton
+
         self.configureView()
     }
     

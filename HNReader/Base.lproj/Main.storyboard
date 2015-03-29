@@ -32,16 +32,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Story" id="wzM-nX-vcA">
                         <barButtonItem key="backBarButtonItem" title="Back" id="MvT-0I-zF5"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="XE6-O5-pHN">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7eL-ef-Bmv">
-                                <rect key="frame" x="531" y="11" width="54" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Share"/>
-                                <connections>
-                                    <action selector="shareStory:" destination="fgl-kl-gt6" eventType="touchUpInside" id="t7R-AW-VYs"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="webView" destination="E7z-VG-bjj" id="TN0-cK-57M"/>
