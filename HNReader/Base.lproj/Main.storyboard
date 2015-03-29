@@ -32,6 +32,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Story" id="wzM-nX-vcA">
                         <barButtonItem key="backBarButtonItem" title="Back" id="MvT-0I-zF5"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="qn1-Hs-hmE">
+                            <connections>
+                                <action selector="shareStory:" destination="fgl-kl-gt6" id="bbu-Rw-NC2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="webView" destination="E7z-VG-bjj" id="TN0-cK-57M"/>
@@ -50,32 +55,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoryCell" rowHeight="74" id="umY-lv-sp0">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoryCell" rowHeight="90" id="umY-lv-sp0">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="umY-lv-sp0" id="qgO-bw-1Fh">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="111" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="React Native is now open source" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzP-QU-SOa">
-                                            <rect key="frame" x="41" y="8" width="551" height="19"/>
+                                            <rect key="frame" x="41" y="14" width="551" height="19"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="112" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://github.com/facebook/react-native" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7n-2Y-X9L">
-                                            <rect key="frame" x="41" y="30" width="551" height="14"/>
+                                            <rect key="frame" x="41" y="38" width="551" height="14"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="113" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="448 points by peterhunt 3 hours ago · 139 comments" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9O-3Q-qMY">
+                                            <rect key="frame" x="41" y="57" width="551" height="14"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="110" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2H7-F1-gAC">
-                                            <rect key="frame" x="24" y="8" width="9" height="19"/>
+                                            <rect key="frame" x="24" y="14" width="9" height="19"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="113" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="448 points by peterhunt 3 hours ago · 139 comments" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9O-3Q-qMY">
-                                            <rect key="frame" x="41" y="51" width="551" height="14"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -83,16 +88,24 @@
                                     <constraints>
                                         <constraint firstItem="2H7-F1-gAC" firstAttribute="top" secondItem="qgO-bw-1Fh" secondAttribute="topMargin" id="5Xk-jc-WXY"/>
                                         <constraint firstItem="FzP-QU-SOa" firstAttribute="leading" secondItem="2H7-F1-gAC" secondAttribute="trailing" constant="8" id="MVx-ju-DcB"/>
+                                        <constraint firstItem="2H7-F1-gAC" firstAttribute="top" secondItem="qgO-bw-1Fh" secondAttribute="topMargin" constant="9" id="Obs-gQ-kwP"/>
                                         <constraint firstItem="L9O-3Q-qMY" firstAttribute="leading" secondItem="qgO-bw-1Fh" secondAttribute="leadingMargin" constant="33" id="TUS-4D-CQ5"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="L9O-3Q-qMY" secondAttribute="trailing" id="Uhe-Z3-PGt"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="FzP-QU-SOa" secondAttribute="trailing" id="ZtZ-kv-L7I"/>
-                                        <constraint firstItem="L9O-3Q-qMY" firstAttribute="top" secondItem="G7n-2Y-X9L" secondAttribute="bottom" constant="7" id="gbp-0x-0Ob"/>
-                                        <constraint firstItem="G7n-2Y-X9L" firstAttribute="top" secondItem="FzP-QU-SOa" secondAttribute="bottom" constant="3" id="j9k-ri-ZDI"/>
+                                        <constraint firstItem="L9O-3Q-qMY" firstAttribute="top" secondItem="G7n-2Y-X9L" secondAttribute="bottom" constant="5" id="gbp-0x-0Ob"/>
+                                        <constraint firstItem="G7n-2Y-X9L" firstAttribute="top" secondItem="FzP-QU-SOa" secondAttribute="bottom" constant="5" id="j9k-ri-ZDI"/>
                                         <constraint firstAttribute="centerY" secondItem="G7n-2Y-X9L" secondAttribute="centerY" id="mFn-Cm-NfL"/>
                                         <constraint firstItem="FzP-QU-SOa" firstAttribute="leading" secondItem="qgO-bw-1Fh" secondAttribute="leadingMargin" constant="33" id="n4a-U6-WHK"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="G7n-2Y-X9L" secondAttribute="trailing" id="nAf-cB-iSP"/>
                                         <constraint firstItem="G7n-2Y-X9L" firstAttribute="leading" secondItem="qgO-bw-1Fh" secondAttribute="leadingMargin" constant="33" id="nT1-A7-8wZ"/>
+                                        <constraint firstItem="G7n-2Y-X9L" firstAttribute="top" secondItem="2H7-F1-gAC" secondAttribute="bottom" constant="5" id="ufj-gg-cBg"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="5Xk-jc-WXY"/>
+                                            <exclude reference="Obs-gQ-kwP"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <gestureRecognizers/>
                                 <connections>
@@ -109,7 +122,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fjA-bg-D8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1231" y="173"/>
+            <point key="canvasLocation" x="1231" y="172"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aiY-b8-UmN">
