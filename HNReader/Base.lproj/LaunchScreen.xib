@@ -11,14 +11,22 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hnreader" translatesAutoresizingMaskIntoConstraints="NO" id="fiU-oh-ES9">
-                    <rect key="frame" x="140" y="140" width="200" height="200"/>
+                    <rect key="frame" x="100" y="100" width="280" height="280"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="KEr-ri-8c7"/>
+                        <constraint firstAttribute="height" constant="280" id="S2n-d8-lA8"/>
+                        <constraint firstAttribute="width" constant="280" id="U6m-Jv-Yfb"/>
                         <constraint firstAttribute="height" constant="200" id="XUH-V6-xKl"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="KEr-ri-8c7"/>
+                            <exclude reference="XUH-V6-xKl"/>
+                        </mask>
+                    </variation>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.96078431369999995" green="0.48627450979999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="fiU-oh-ES9" secondAttribute="centerY" id="A2u-42-Pnc"/>
                 <constraint firstAttribute="centerX" secondItem="fiU-oh-ES9" secondAttribute="centerX" id="MXf-a8-OfP"/>
