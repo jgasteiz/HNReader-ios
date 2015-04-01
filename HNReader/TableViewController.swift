@@ -13,8 +13,8 @@ class TableViewController: UITableViewController {
     var hnFetchTask = HNFetchTask()
     
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-    var refreshButton: UIBarButtonItem?
-    
+    @IBOutlet weak var refreshButton: UIBarButtonItem!
+
     var items: [String] = ["We", "Heart", "Swift"]
     var storyList: [Story] = []
 
@@ -24,15 +24,12 @@ class TableViewController: UITableViewController {
         
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
-        // Initialize refresh button
-        refreshButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: "refreshPosts:")
-        self.navigationItem.rightBarButtonItem = refreshButton!
-
         // Initialize spinner
         activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0, 16, 16))
         activityIndicator.hidesWhenStopped = true
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
-        activityIndicator.hidden = true
+        // activityIndicator.stopAnimating()
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: activityIndicator)
         
         refreshPosts(self)
     }
@@ -80,9 +77,17 @@ class TableViewController: UITableViewController {
             }
         }
     }
+
+    @IBAction func refreshPosts(sender: AnyObject) {
+        activityIndicator.startAnimating()
+
+        storyList = []
+        tableView.reloadData()
+        hnFetchTask.getTopStories(onGetPostsSuccess, onTaskError: onGetPostsError)
+    }
     
     func onGetPostsSuccess(stories: [Story]) {
-        hideSpinner()
+        activityIndicator.stopAnimating()
         
         storyList = stories
         tableView.reloadData()
@@ -90,26 +95,6 @@ class TableViewController: UITableViewController {
     
     func onGetPostsError() {
         // Do something here
-    }
-
-    func showSpinner() {
-        activityIndicator.startAnimating()
-        activityIndicator.hidden = false
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: activityIndicator)
-    }
-
-    func hideSpinner() {
-        activityIndicator.hidden = true
-        activityIndicator.stopAnimating()
-        self.navigationItem.rightBarButtonItem = refreshButton!
-    }
-    
-    func refreshPosts(sender: AnyObject) {
-        showSpinner()
-        
-        storyList = []
-        tableView.reloadData()
-        hnFetchTask.getTopStories(onGetPostsSuccess, onTaskError: onGetPostsError)
     }
 }
 

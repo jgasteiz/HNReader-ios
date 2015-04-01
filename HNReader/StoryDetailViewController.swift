@@ -14,14 +14,6 @@ class StoryDetailViewController: UIViewController {
     var storyURL: NSURL?
     
     @IBOutlet weak var webView: UIWebView!
-    
-    func configureView() {
-        // Update the user interface for the detail item.
-        self.navigationItem.title = storyTitle
-        let request = NSURLRequest(URL: storyURL!)
-        webView.loadRequest(request)
-    }
-
 
     @IBAction func shareStory(sender: UIBarButtonItem) {
         let objectsToShare = [storyURL!]
@@ -30,13 +22,19 @@ class StoryDetailViewController: UIViewController {
         self.presentViewController(activityVC, animated: true, completion: nil)
     }
 
+    @IBAction func openSafari(sender: AnyObject) {
+        UIApplication.sharedApplication().openURL(storyURL!)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
-        self.configureView()
+
+        self.navigationItem.title = storyTitle
+        let request = NSURLRequest(URL: storyURL!)
+        webView.loadRequest(request)
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
