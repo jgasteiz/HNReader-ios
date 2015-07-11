@@ -39,12 +39,11 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("StoryCell") as UITableViewCell
-        
-        var indexLabel: UILabel = cell.viewWithTag(110) as UILabel!
-        var titleLabel: UILabel = cell.viewWithTag(111) as UILabel!
-        var urlLabel: UILabel = cell.viewWithTag(112) as UILabel!
-        var descriptionLabel: UILabel = cell.viewWithTag(113) as UILabel!
+        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("StoryCell") as! UITableViewCell
+        var indexLabel: UILabel = cell.viewWithTag(110) as! UILabel
+        var titleLabel: UILabel = cell.viewWithTag(111) as! UILabel
+        var urlLabel: UILabel = cell.viewWithTag(112) as! UILabel
+        var descriptionLabel: UILabel = cell.viewWithTag(113) as! UILabel
         
         let title = self.storyList[indexPath.row].title
         let author = self.storyList[indexPath.row].author
@@ -70,7 +69,7 @@ class TableViewController: UITableViewController {
                 
                 let story: Story = self.storyList[indexPath.row]
 
-                let controller = segue.destinationViewController as StoryDetailViewController
+                let controller = segue.destinationViewController as! StoryDetailViewController
                 
                 controller.storyTitle = story.title
                 controller.storyURL = NSURL(string: story.getURL())

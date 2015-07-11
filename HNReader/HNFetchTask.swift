@@ -48,7 +48,7 @@ class HNFetchTask {
         let debouncedTaskDone = debounce(
             NSTimeInterval(0.5),
             queue: dispatch_get_main_queue(),
-            { _ in
+            action: { _ in
                 onTaskDone(stories: self.storiesArray)
             }
         )
@@ -56,20 +56,20 @@ class HNFetchTask {
         // Fetch and observe the first 30 items in the Top Stories
         topStoriesRef.queryLimitedToFirst(30).observeSingleEventOfType(.Value, withBlock: { (idListSnapshot) in
             
-            let storyIdList: [Int] = idListSnapshot.value as [Int]
+            let storyIdList: [Int] = idListSnapshot.value as! [Int]
             
             for storyId in storyIdList {
                 
                 // Fetch and observe the item in place.
                 self.itemRef.childByAppendingPath(String(storyId)).observeSingleEventOfType(.Value, withBlock: { storySnapshot in
                     
-                    let id = storySnapshot.value["id"] as Int!
-                    let title = storySnapshot.value["title"] as String!
-                    let author = storySnapshot.value["by"] as String!
-                    let time = storySnapshot.value["time"] as Double!
-                    let type = storySnapshot.value["type"] as String!
-                    let url = storySnapshot.value["url"] as String!
-                    let score = storySnapshot.value["score"] as Int!
+                    let id = storySnapshot.value["id"] as! Int
+                    let title = storySnapshot.value["title"] as! String
+                    let author = storySnapshot.value["by"] as! String
+                    let time = storySnapshot.value["time"] as! Double
+                    let type = storySnapshot.value["type"] as! String
+                    let url = storySnapshot.value["url"] as! String
+                    let score = storySnapshot.value["score"] as! Int
                     
                     let story = Story(id: id, title: title, author: author, time: time, type: type, url: url, score: score)
                     
