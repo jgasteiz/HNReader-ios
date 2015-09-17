@@ -39,16 +39,16 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("StoryCell") as! UITableViewCell
-        var indexLabel: UILabel = cell.viewWithTag(110) as! UILabel
-        var titleLabel: UILabel = cell.viewWithTag(111) as! UILabel
-        var urlLabel: UILabel = cell.viewWithTag(112) as! UILabel
-        var descriptionLabel: UILabel = cell.viewWithTag(113) as! UILabel
+        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("StoryCell") as UITableViewCell!
+        let indexLabel: UILabel = cell.viewWithTag(110) as! UILabel
+        let titleLabel: UILabel = cell.viewWithTag(111) as! UILabel
+        let urlLabel: UILabel = cell.viewWithTag(112) as! UILabel
+        let descriptionLabel: UILabel = cell.viewWithTag(113) as! UILabel
         
         let title = self.storyList[indexPath.row].title
         let author = self.storyList[indexPath.row].author
         let score = self.storyList[indexPath.row].score
-        var url = self.storyList[indexPath.row].getURL()
+        let url = self.storyList[indexPath.row].getURL()
 
         indexLabel.text = "\(indexPath.row + 1)"
         titleLabel.text = title
@@ -65,7 +65,7 @@ class TableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
+            if let indexPath = self.tableView.indexPathForSelectedRow as NSIndexPath! {
                 
                 let story: Story = self.storyList[indexPath.row]
 
