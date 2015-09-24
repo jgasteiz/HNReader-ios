@@ -12,6 +12,7 @@ class StoryDetailViewController: UIViewController {
     
     var storyTitle: String?
     var storyURL: NSURL?
+    var storyId: Int?
     
     @IBOutlet weak var webView: UIWebView!
 

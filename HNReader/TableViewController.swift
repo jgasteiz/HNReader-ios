@@ -12,10 +12,11 @@ class TableViewController: UITableViewController {
     
     var hnStoriesTask = HNStoriesTask()
     
-    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-    @IBOutlet weak var refreshButton: UIBarButtonItem!
-
     var storyList: [Story] = []
+    
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    @IBOutlet weak var refreshButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +81,7 @@ class TableViewController: UITableViewController {
                 let controller = segue.destinationViewController as! StoryDetailViewController
                 
                 controller.storyTitle = story.getTitle()
+                controller.storyId = story.getId()
                 controller.storyURL = NSURL(string: story.getURL())
             }
         }
