@@ -12,28 +12,69 @@ class Story {
     
     let hackerWebURL = "http://cheeaun.github.io/hackerweb/#/item/"
     
-    var id: Int
-    var title: String
-    var author: String
-    var score: Int
-    var time: Double
-    var type: String
-    var url: String
+    var id: Int?
+    var title: String?
+    var user: String?
+    var timeAgo: String?
+    var type: String?
+    var url: String?
+    var points: Int?
+    var commentsCount: Int?
     
-    init(id: Int, title: String, author: String, time: Double, type: String, url: String, score: Int) {
+    init(id: Int?, title: String?, user: String?, timeAgo: String?, type: String?, url: String?, points: Int?, commentsCount: Int?) {
         self.id = id
         self.title = title
-        self.author = author
-        self.time = time
+        self.user = user
+        self.timeAgo = timeAgo
         self.type = type
         self.url = url
-        self.score = score
+        self.points = points
+        self.commentsCount = commentsCount
+    }
+    
+    ////////////////////////////
+    // Getters
+    ////////////////////////////
+    func getId() -> Int {
+        return self.id != nil ? self.id! : -1
+    }
+    
+    func getTitle() -> String {
+        return self.title != nil ? self.title! : ""
+    }
+    
+    func getUser() -> String {
+        return self.user != nil ? self.user! : ""
+    }
+    
+    func getTimeAgo() -> String {
+        return self.timeAgo != nil ? self.timeAgo! : ""
+    }
+    
+    func getType() -> String {
+        return self.type != nil ? self.type! : ""
     }
     
     func getURL() -> String {
-        if self.url != "" {
-            return self.url
+        if self.url! != "" {
+            return self.url!
         }
-        return "\(self.hackerWebURL)\(self.id)"
+        return "\(self.hackerWebURL)\(self.getId())"
     }
+    
+    func getPoints() -> Int {
+        return self.points != nil ? self.points! : 0
+    }
+    
+    func getCommentsCount() -> Int {
+        return self.commentsCount != nil ? self.commentsCount! : 0
+    }
+    
+    ////////////////////////////
+    // Other helper functions
+    ////////////////////////////
+    func hasUser() -> Bool {
+        return self.user != nil
+    }
+    
 }
