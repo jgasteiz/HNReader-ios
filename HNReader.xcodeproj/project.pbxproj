@@ -32,14 +32,14 @@
 		5902E3B11AC1F514008F2B85 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		5910AE791AC33E7700129948 /* StoryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryDetailViewController.swift; sourceTree = "<group>"; };
 		59511FC81BB310B90037CE67 /* HNStoriesTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNStoriesTask.swift; sourceTree = "<group>"; };
-		59C4EB911ABB437C008E152E /* HNReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = HNReader.app; path = "/Users/javi/Developer/HNReader-ios/build/Debug-iphoneos/HNReader.app"; sourceTree = "<absolute>"; };
+		59511FCA1BB4877F0037CE67 /* HNReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HNReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		59511FCB1BB4877F0037CE67 /* HNReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HNReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		59C4EB951ABB437C008E152E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59C4EB961ABB437C008E152E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59C4EB981ABB437C008E152E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		59C4EB9B1ABB437C008E152E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		59C4EB9D1ABB437C008E152E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		59C4EBA01ABB437C008E152E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		59C4EBA61ABB437D008E152E /* HNReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = HNReaderTests.xctest; path = "/Users/javi/Developer/HNReader-ios/build/Debug-iphoneos/HNReaderTests.xctest"; sourceTree = "<absolute>"; };
 		59C4EBAB1ABB437D008E152E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59C4EBAC1ABB437D008E152E /* HNReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNReaderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +67,8 @@
 			children = (
 				59C4EB931ABB437C008E152E /* HNReader */,
 				59C4EBA91ABB437D008E152E /* HNReaderTests */,
+				59511FCA1BB4877F0037CE67 /* HNReader.app */,
+				59511FCB1BB4877F0037CE67 /* HNReaderTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,7 +130,7 @@
 			);
 			name = HNReader;
 			productName = HNReader;
-			productReference = 59C4EB911ABB437C008E152E /* HNReader.app */;
+			productReference = 59511FCA1BB4877F0037CE67 /* HNReader.app */;
 			productType = "com.apple.product-type.application";
 		};
 		59C4EBA51ABB437D008E152E /* HNReaderTests */ = {
@@ -146,7 +148,7 @@
 			);
 			name = HNReaderTests;
 			productName = HNReaderTests;
-			productReference = 59C4EBA61ABB437D008E152E /* HNReaderTests.xctest */;
+			productReference = 59511FCB1BB4877F0037CE67 /* HNReaderTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */

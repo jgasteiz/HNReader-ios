@@ -32,6 +32,8 @@ class StoryDetailViewController: UIViewController {
 
         self.navigationItem.title = storyTitle
         let request = NSURLRequest(URL: storyURL!)
+        
+        webView.scalesPageToFit = true
         webView.loadRequest(request)
     }
 
