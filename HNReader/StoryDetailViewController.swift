@@ -27,6 +27,19 @@ class StoryDetailViewController: UIViewController {
         UIApplication.sharedApplication().openURL(storyURL!)
     }
     
+    
+    @IBAction func viewComments(sender: AnyObject) {
+        performSegueWithIdentifier("showComments", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showComments" {
+            let controller = segue.destinationViewController as! StoryCommentsViewController
+            controller.storyTitle = self.storyTitle
+            controller.storyId = self.storyId
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
