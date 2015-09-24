@@ -7,21 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5902E3A61AC1E5B1008F2B85 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5902E3A51AC1E5B1008F2B85 /* Security.framework */; };
-		5902E3A81AC1E5C1008F2B85 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5902E3A71AC1E5C1008F2B85 /* CFNetwork.framework */; };
-		5902E3AC1AC1E5E4008F2B85 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5902E3AB1AC1E5E4008F2B85 /* SystemConfiguration.framework */; };
-		5902E3AE1AC1E5EC008F2B85 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5902E3AD1AC1E5EC008F2B85 /* libicucore.dylib */; };
-		5902E3B01AC1E5F4008F2B85 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5902E3AF1AC1E5F4008F2B85 /* libc++.dylib */; };
 		5902E3B21AC1F514008F2B85 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902E3B11AC1F514008F2B85 /* Story.swift */; };
 		5910AE7A1AC33E7700129948 /* StoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5910AE791AC33E7700129948 /* StoryDetailViewController.swift */; };
-		5913CD511AC722BA007CF209 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5913CD501AC722BA007CF209 /* Firebase.framework */; };
+		59511FC91BB310B90037CE67 /* HNStoriesTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59511FC81BB310B90037CE67 /* HNStoriesTask.swift */; settings = {ASSET_TAGS = (); }; };
 		59C4EB971ABB437C008E152E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C4EB961ABB437C008E152E /* AppDelegate.swift */; };
 		59C4EB991ABB437C008E152E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C4EB981ABB437C008E152E /* TableViewController.swift */; };
 		59C4EB9C1ABB437C008E152E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59C4EB9A1ABB437C008E152E /* Main.storyboard */; };
 		59C4EB9E1ABB437C008E152E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59C4EB9D1ABB437C008E152E /* Images.xcassets */; };
 		59C4EBA11ABB437C008E152E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C4EB9F1ABB437C008E152E /* LaunchScreen.xib */; };
 		59C4EBAD1ABB437D008E152E /* HNReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C4EBAC1ABB437D008E152E /* HNReaderTests.swift */; };
-		59C4EBB71ABB4408008E152E /* HNFetchTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C4EBB61ABB4408008E152E /* HNFetchTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,26 +29,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5902E3A51AC1E5B1008F2B85 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		5902E3A71AC1E5C1008F2B85 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		5902E3AB1AC1E5E4008F2B85 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		5902E3AD1AC1E5EC008F2B85 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
-		5902E3AF1AC1E5F4008F2B85 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		5902E3B11AC1F514008F2B85 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		5910AE791AC33E7700129948 /* StoryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryDetailViewController.swift; sourceTree = "<group>"; };
-		5913CD501AC722BA007CF209 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
-		59C4EB911ABB437C008E152E /* HNReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HNReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		59511FC81BB310B90037CE67 /* HNStoriesTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNStoriesTask.swift; sourceTree = "<group>"; };
+		59C4EB911ABB437C008E152E /* HNReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = HNReader.app; path = "/Users/javi/Developer/HNReader-ios/build/Debug-iphoneos/HNReader.app"; sourceTree = "<absolute>"; };
 		59C4EB951ABB437C008E152E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59C4EB961ABB437C008E152E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59C4EB981ABB437C008E152E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		59C4EB9B1ABB437C008E152E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		59C4EB9D1ABB437C008E152E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		59C4EBA01ABB437C008E152E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		59C4EBA61ABB437D008E152E /* HNReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HNReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		59C4EBA61ABB437D008E152E /* HNReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = HNReaderTests.xctest; path = "/Users/javi/Developer/HNReader-ios/build/Debug-iphoneos/HNReaderTests.xctest"; sourceTree = "<absolute>"; };
 		59C4EBAB1ABB437D008E152E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59C4EBAC1ABB437D008E152E /* HNReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNReaderTests.swift; sourceTree = "<group>"; };
-		59C4EBB61ABB4408008E152E /* HNFetchTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNFetchTask.swift; sourceTree = "<group>"; };
-		59CB76611AC1E1A800A098B0 /* HNReader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HNReader-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,12 +49,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5902E3B01AC1E5F4008F2B85 /* libc++.dylib in Frameworks */,
-				5902E3AE1AC1E5EC008F2B85 /* libicucore.dylib in Frameworks */,
-				5902E3AC1AC1E5E4008F2B85 /* SystemConfiguration.framework in Frameworks */,
-				5913CD511AC722BA007CF209 /* Firebase.framework in Frameworks */,
-				5902E3A81AC1E5C1008F2B85 /* CFNetwork.framework in Frameworks */,
-				5902E3A61AC1E5B1008F2B85 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,36 +62,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5902E39A1AC1E4FC008F2B85 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5902E3AF1AC1E5F4008F2B85 /* libc++.dylib */,
-				5902E3AD1AC1E5EC008F2B85 /* libicucore.dylib */,
-				5902E3AB1AC1E5E4008F2B85 /* SystemConfiguration.framework */,
-				5913CD501AC722BA007CF209 /* Firebase.framework */,
-				5902E3A71AC1E5C1008F2B85 /* CFNetwork.framework */,
-				5902E3A51AC1E5B1008F2B85 /* Security.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		59C4EB881ABB437C008E152E = {
 			isa = PBXGroup;
 			children = (
-				5902E39A1AC1E4FC008F2B85 /* Frameworks */,
 				59C4EB931ABB437C008E152E /* HNReader */,
 				59C4EBA91ABB437D008E152E /* HNReaderTests */,
-				59C4EB921ABB437C008E152E /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		59C4EB921ABB437C008E152E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				59C4EB911ABB437C008E152E /* HNReader.app */,
-				59C4EBA61ABB437D008E152E /* HNReaderTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		59C4EB931ABB437C008E152E /* HNReader */ = {
@@ -122,10 +79,9 @@
 				59C4EB9D1ABB437C008E152E /* Images.xcassets */,
 				59C4EB9F1ABB437C008E152E /* LaunchScreen.xib */,
 				59C4EB941ABB437C008E152E /* Supporting Files */,
-				59C4EBB61ABB4408008E152E /* HNFetchTask.swift */,
-				59CB76611AC1E1A800A098B0 /* HNReader-Bridging-Header.h */,
 				5902E3B11AC1F514008F2B85 /* Story.swift */,
 				5910AE791AC33E7700129948 /* StoryDetailViewController.swift */,
+				59511FC81BB310B90037CE67 /* HNStoriesTask.swift */,
 			);
 			path = HNReader;
 			sourceTree = "<group>";
@@ -201,7 +157,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Javi Manzano";
 				TargetAttributes = {
 					59C4EB901ABB437C008E152E = {
@@ -223,7 +179,7 @@
 				Base,
 			);
 			mainGroup = 59C4EB881ABB437C008E152E;
-			productRefGroup = 59C4EB921ABB437C008E152E /* Products */;
+			productRefGroup = 59C4EB881ABB437C008E152E;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -260,8 +216,8 @@
 			files = (
 				59C4EB991ABB437C008E152E /* TableViewController.swift in Sources */,
 				5910AE7A1AC33E7700129948 /* StoryDetailViewController.swift in Sources */,
+				59511FC91BB310B90037CE67 /* HNStoriesTask.swift in Sources */,
 				59C4EB971ABB437C008E152E /* AppDelegate.swift in Sources */,
-				59C4EBB71ABB4408008E152E /* HNFetchTask.swift in Sources */,
 				5902E3B21AC1F514008F2B85 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +280,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -401,8 +358,8 @@
 					"$(PROJECT_DIR)",
 				);
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.javiman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "HNReader/HNReader-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -425,8 +382,8 @@
 					"$(PROJECT_DIR)",
 				);
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.javiman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "HNReader/HNReader-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -444,6 +401,7 @@
 				);
 				INFOPLIST_FILE = HNReaderTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.javiman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HNReader.app/HNReader";
 			};
@@ -459,6 +417,7 @@
 				);
 				INFOPLIST_FILE = HNReaderTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.javiman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HNReader.app/HNReader";
 			};
