@@ -39,12 +39,14 @@ class StoryCommentsViewController: UIViewController {
     func onGetPostsSuccess(comments: [Comment]) {
         self.commentList = comments
         
+        // The horror. Fix this.
         var htmlContent: String = "<html><head><style>*{word-wrap:break-word;font-family:Helvetica;}p{margin: 10px 0;}</style></head><body>"
         
         for comment in comments {
             htmlContent = "\(htmlContent)\(comment.getContent())"
         }
         
+        // The horror. Fix this.
         htmlContent = "\(htmlContent)</body></html>"
         
         commentsContent.loadHTMLString(htmlContent as String, baseURL: nil)

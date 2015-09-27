@@ -59,6 +59,7 @@ class Comment {
         // If this is a reply, also remove the left padding
         let marginLeft = self.getLevel() > 0 ? "-5px" : "0"
         
+        // The horror. Fix this.
         return
             "<div style=\"margin-bottom: 20px; margin-left:\(marginLeft); border-left: \(borderLeft)px solid #F60; padding: 0 5px 0 \(paddingLeft)px;\">" +
                 "<header>" +
