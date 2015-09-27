@@ -42,7 +42,7 @@ class StoryCommentsViewController: UIViewController {
         commentsContent.text = ""
         
         for (index, comment) in comments.enumerate() {
-            commentsContent.text = "\(commentsContent.text)\(html2String(comment.getContent()))"
+            commentsContent.text = "\(commentsContent.text)\(comment.getContent())"
             
             // If it's not the last element, add two breaklines
             if index < comments.count - 1 {
@@ -60,15 +60,5 @@ class StoryCommentsViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
-    }
-    
-    //////////////
-    // Helpers
-    //////////////
-    func html2String(html:String) -> String {
-        return try! NSAttributedString(
-            data: html.dataUsingEncoding(NSUTF8StringEncoding)!,
-            options:[NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding],
-            documentAttributes: nil).string
     }
 }

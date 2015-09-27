@@ -63,18 +63,30 @@ class HNStoriesTask {
     
     func getCommentsFromData(dataObject: NSData) -> [Comment] {
         let storyObject: NSDictionary = (try! NSJSONSerialization.JSONObjectWithData(dataObject, options: [])) as! NSDictionary
+        let allComments: [Comment] = getComments(storyObject, comments: [])
+        return allComments
+    }
+    
+    func getComments (comment: NSDictionary, var comments: [Comment]) -> [Comment] {
         
-        var comments: [Comment] = []
-        for commentObject in storyObject["comments"] as! NSArray {
-            comments.append(Comment(
+        for commentObject in comment["comments"] as! NSArray {
+            
+            let newComment = Comment(
                 id: commentObject["id"] as? Int,
                 level: commentObject["level"] as? Int,
                 user: commentObject["user"] as? String,
                 timeAgo: commentObject["time_ago"] as? String,
                 content: commentObject["content"] as? String,
-                comments: [] // just first level of comments for now
-            ))
+                comments: []
+            )
+            
+            comments.append(newComment)
+            
+            if commentObject["comments"] != nil {
+                comments = comments + getComments(commentObject as! NSDictionary, comments: [])
+            }
         }
+        
         
         return comments
     }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Comment {
     
@@ -47,10 +48,28 @@ class Comment {
     
     func getContent() -> String {
         let commentText = self.content != nil ? self.content! : ""
-        return "\(self.getUser()), \(self.getTimeAgo()):\n\(commentText)"
+        var indentation = ""
+        
+        for var i = 0; i < self.getLevel(); i++ {
+            indentation = "\t\(indentation)"
+        }
+        
+        let header = "\(indentation)\(self.getUser()), \(self.getTimeAgo())"
+        let body = "\(indentation)\(commentText)"
+        return "\(header)\n\(body)"
     }
     
     func getComments() -> [Comment] {
         return self.comments != nil ? self.comments! : []
+    }
+    
+    //////////////
+    // Helpers
+    //////////////
+    func html2String(html:String) -> String {
+        return try! NSAttributedString(
+            data: html.dataUsingEncoding(NSUTF8StringEncoding)!,
+            options:[NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding],
+            documentAttributes: nil).string
     }
 }
