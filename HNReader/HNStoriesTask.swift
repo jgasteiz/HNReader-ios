@@ -3,19 +3,22 @@ import Foundation
 class HNStoriesTask {
     
     let topNewsURL: NSURL
-    let storyURL: NSURL
+    let baseStoryURL: String
     var storiesArray: [Story] = []
     var storyDetail: NSDictionary = NSDictionary()
     
     init() {
         topNewsURL = NSURL(string: "http://node-hnapi-javiman.herokuapp.com/news")!
-        storyURL = NSURL(string: "http://node-hnapi.herokuapp.com/item/10272483")!
+        baseStoryURL = "http://node-hnapi.herokuapp.com/item/"
     }
     
     func getStory (id: Int, onTaskDone: () -> Void, onTaskError: () -> Void) {
+        
+        let storyUrl = NSURL(string: "\(baseStoryURL)\(id)") as NSURL!
+        
         // Get the top stories form the API
         let sharedSession = NSURLSession.sharedSession()
-        let downloadTask: NSURLSessionDownloadTask = sharedSession.downloadTaskWithURL(storyURL, completionHandler: { (location: NSURL?, response: NSURLResponse?, error: NSError?) -> Void in
+        let downloadTask: NSURLSessionDownloadTask = sharedSession.downloadTaskWithURL(storyUrl, completionHandler: { (location: NSURL?, response: NSURLResponse?, error: NSError?) -> Void in
             
             if error == nil {
                 // Get the url content as NSData
