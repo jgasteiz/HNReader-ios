@@ -84,18 +84,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="itx-aI-POM">
-                                <rect key="frame" x="20" y="0.0" width="560" height="592"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sR5-9t-cax">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="itx-aI-POM" firstAttribute="leading" secondItem="oS4-iZ-fSd" secondAttribute="leadingMargin" id="Cwz-go-aG2"/>
-                            <constraint firstItem="itx-aI-POM" firstAttribute="top" secondItem="oS4-iZ-fSd" secondAttribute="topMargin" id="ICX-16-6UW"/>
-                            <constraint firstItem="itx-aI-POM" firstAttribute="trailing" secondItem="oS4-iZ-fSd" secondAttribute="trailingMargin" id="PTB-nO-Axx"/>
-                            <constraint firstItem="ktx-98-kma" firstAttribute="top" secondItem="itx-aI-POM" secondAttribute="bottom" constant="8" id="xA0-hf-79X"/>
+                            <constraint firstItem="ktx-98-kma" firstAttribute="top" secondItem="sR5-9t-cax" secondAttribute="bottom" id="0u1-X7-sy1"/>
+                            <constraint firstItem="sR5-9t-cax" firstAttribute="trailing" secondItem="oS4-iZ-fSd" secondAttribute="trailingMargin" constant="20" id="IKT-3S-Vei"/>
+                            <constraint firstItem="sR5-9t-cax" firstAttribute="top" secondItem="oS4-iZ-fSd" secondAttribute="topMargin" constant="20" id="qn9-OX-WHb"/>
+                            <constraint firstItem="sR5-9t-cax" firstAttribute="leading" secondItem="oS4-iZ-fSd" secondAttribute="leadingMargin" constant="-20" id="wgy-p6-cWc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Story" id="O8u-ud-5sP">
@@ -104,7 +103,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="commentsContent" destination="itx-aI-POM" id="lqE-wJ-Xyn"/>
+                        <outlet property="commentsContent" destination="sR5-9t-cax" id="vDR-1h-3zD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjK-Jx-P4K" userLabel="First Responder" sceneMemberID="firstResponder"/>

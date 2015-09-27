@@ -48,15 +48,24 @@ class Comment {
     
     func getContent() -> String {
         let commentText = self.content != nil ? self.content! : ""
-        var indentation = ""
         
-        for var i = 0; i < self.getLevel(); i++ {
-            indentation = "\t\(indentation)"
-        }
+        // Calulate the padding left depending on the level
+        let paddingLeft = 5 + self.getLevel() * 5
+        let borderLeft = self.getLevel() * 5
+
+        // If this is a reply, show an arrow before the user name
+        let headerPrefix = self.getLevel() > 0 ? "↳" : ""
         
-        let header = "\(indentation)\(self.getUser()), \(self.getTimeAgo())"
-        let body = "\(indentation)\(commentText)"
-        return "\(header)\n\(body)"
+        // If this is a reply, also remove the left padding
+        let marginLeft = self.getLevel() > 0 ? "-5px" : "0"
+        
+        return
+            "<div style=\"margin-bottom: 20px; margin-left:\(marginLeft); border-left: \(borderLeft)px solid #F60; padding: 0 5px 0 \(paddingLeft)px;\">" +
+                "<header>" +
+                    "\(headerPrefix)<strong>\(self.getUser())</strong>, <em>\(self.getTimeAgo())</em>" +
+                "</header>" +
+                "<div>\(commentText)</div>" +
+            "</div>"
     }
     
     func getComments() -> [Comment] {
