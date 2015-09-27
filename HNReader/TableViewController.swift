@@ -33,6 +33,11 @@ class TableViewController: UITableViewController {
         refreshPosts(self)
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.storyList.count;
     }
@@ -62,14 +67,9 @@ class TableViewController: UITableViewController {
         }
         
         // No comment count until it's possible to view the comments in the app.
-        // descriptionLabel.text = "\(descriptionLabel.text!), \(story.getTimeAgo()) - \(story.getCommentsCount()) comments"
+        descriptionLabel.text = "\(descriptionLabel.text!), \(story.getTimeAgo()) - \(story.getCommentsCount()) comments"
         
         return cell
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
