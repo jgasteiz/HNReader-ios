@@ -8,7 +8,7 @@ class HNStoriesTask {
     
     init() {
         topNewsURL = NSURL(string: "http://node-hnapi-javiman.herokuapp.com/news")!
-        baseStoryURL = "http://node-hnapi.herokuapp.com/item/"
+        baseStoryURL = "http://node-hnapi-javiman.herokuapp.com/item/"
     }
     
     func getComments (id: Int, onTaskDone: (comments: [Comment]) -> Void, onTaskError: () -> Void) {
