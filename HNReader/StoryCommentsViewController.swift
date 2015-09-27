@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoryCommentsViewController: UITableViewController {
+class StoryCommentsViewController: UIViewController {
     
     var hnStoriesTask = HNStoriesTask()
     
@@ -19,66 +19,36 @@ class StoryCommentsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
-        
+
         self.navigationItem.title = self.storyTitle
         
         fetchComments()
     }
+    
+    @IBOutlet weak var commentsContent: UITextView!
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.commentList.count;
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // Get the table cell
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("CommentCell") as UITableViewCell!
-        
-        // Retrieve the story with the cell index
-        let comment = self.commentList[indexPath.row] as! NSDictionary
-        let commentText = (comment["content"] as! String).html2String
-        
-        // Get the labels to fill
-        let commentLabel: UILabel = cell.viewWithTag(110) as! UILabel
-        commentLabel.text = commentText
-        
-        return cell
-    }
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("CommentCell") as UITableViewCell!
-        let commentLabel: UILabel = cell.viewWithTag(110) as! UILabel
-        let comment = self.commentList[indexPath.row] as! NSDictionary
-        let commentText = (comment["content"] as! String).html2String
-        
-        return heightForView(commentText, font: commentLabel.font, width: cell.frame.width)
-    }
-    
-    func heightForView(text: String, font: UIFont, width: CGFloat) -> CGFloat {
-        let label:UILabel = UILabel(frame: CGRectMake(0, 0, width, CGFloat.max))
-        label.numberOfLines = 0
-        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        label.font = font
-        label.text = text
-        
-        label.sizeToFit()
-        return label.frame.height
-    }
-    
     func fetchComments() {
-        hnStoriesTask.getStory(self.storyId!, onTaskDone: onGetPostsSuccess, onTaskError: onGetPostsError)
+        hnStoriesTask.getComments(self.storyId!, onTaskDone: onGetPostsSuccess, onTaskError: onGetPostsError)
     }
     
-    func onGetPostsSuccess() {
-        self.commentList = self.hnStoriesTask.storyDetail["comments"] as! NSArray
-        tableView.reloadData()
+    func onGetPostsSuccess(comments: [Comment]) {
+        self.commentList = comments
+        
+        commentsContent.text = ""
+        
+        for (index, comment) in comments.enumerate() {
+            commentsContent.text = "\(commentsContent.text)\(html2String(comment.getContent()))"
+            
+            // If it's not the last element, add two breaklines
+            if index < comments.count - 1 {
+                commentsContent.text = "\(commentsContent.text)\n\n"
+            }
+        }
     }
     
     func onGetPostsError() {
@@ -90,5 +60,15 @@ class StoryCommentsViewController: UITableViewController {
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    //////////////
+    // Helpers
+    //////////////
+    func html2String(html:String) -> String {
+        return try! NSAttributedString(
+            data: html.dataUsingEncoding(NSUTF8StringEncoding)!,
+            options:[NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding],
+            documentAttributes: nil).string
     }
 }
