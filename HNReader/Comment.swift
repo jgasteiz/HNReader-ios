@@ -61,7 +61,7 @@ class Comment {
         
         // The horror. Fix this.
         return
-            "<div style=\"margin-bottom: 20px; margin-left:\(marginLeft); border-left: \(borderLeft)px solid #F60; padding: 0 5px 0 \(paddingLeft)px;\">" +
+            "<div class=\"comment\" style=\"margin-left:\(marginLeft); border-left: \(borderLeft)px solid #F60; padding-left: \(paddingLeft)px;\">" +
                 "<header>" +
                     "\(headerPrefix)<strong>\(self.getUser())</strong>, <em>\(self.getTimeAgo())</em>" +
                 "</header>" +

@@ -40,7 +40,14 @@ class StoryCommentsViewController: UIViewController {
         self.commentList = comments
         
         // The horror. Fix this.
-        var htmlContent: String = "<html><head><style>*{word-wrap:break-word;font-family:Helvetica;}p{margin: 10px 0;}</style></head><body>"
+        var htmlContent: String =
+            "<html><head>" +
+                "<style>" +
+                    "* { word-wrap: break-word; font-family: Helvetica; }" +
+                    "p { margin: 10px 0; }" +
+                    ".comment { border-bottom: 1px solid #E0E0E0; margin-bottom: 10px; padding: 0 5px 10px; }" +
+                "</style>" +
+            "</head><body>"
         
         for comment in comments {
             htmlContent = "\(htmlContent)\(comment.getContent())"
