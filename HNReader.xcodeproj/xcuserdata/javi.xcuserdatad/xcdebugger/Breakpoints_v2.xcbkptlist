@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HNReader/StoryCommentsViewController.swift"
-            timestampString = "464957797.883925"
+            timestampString = "465076933.453217"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HNReader/HNStoriesTask.swift"
-            timestampString = "465049152.31297"
+            timestampString = "465075448.70242"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "getTopStories(_:onTaskError:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HNReader/HNStoriesTask.swift"
-            timestampString = "465049152.31297"
+            timestampString = "465075448.70242"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "getStory(_:onTaskDone:onTaskError:)"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "getComments(_:onTaskDone:onTaskError:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -88,12 +88,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HNReader/HNStoriesTask.swift"
-            timestampString = "465049061.151226"
+            timestampString = "465075448.70242"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "getStory(_:onTaskDone:onTaskError:)"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "getComments(_:onTaskDone:onTaskError:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HNReader/StoryCommentsViewController.swift"
+            timestampString = "465078626.099511"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "onGetPostsSuccess(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HNReader/HNStoriesTask.swift"
+            timestampString = "465075269.129913"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "getComments(_:onTaskDone:onTaskError:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
