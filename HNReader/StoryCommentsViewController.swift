@@ -45,7 +45,7 @@ class StoryCommentsViewController: UIViewController {
                 "<style>" +
                     "* { word-wrap: break-word; font-family: Helvetica; }" +
                     "p { margin: 10px 0; }" +
-                    ".comment { border-bottom: 1px solid #E0E0E0; margin-bottom: 10px; padding: 0 5px 10px; }" +
+                    ".comment { border-bottom: 1px solid #E0E0E0; padding: 10px 5px; }" +
                 "</style>" +
             "</head><body>"
         

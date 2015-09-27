@@ -56,12 +56,9 @@ class Comment {
         // If this is a reply, show an arrow before the user name
         let headerPrefix = self.getLevel() > 0 ? "↳" : ""
         
-        // If this is a reply, also remove the left padding
-        let marginLeft = self.getLevel() > 0 ? "-5px" : "0"
-        
         // The horror. Fix this.
         return
-            "<div class=\"comment\" style=\"margin-left:\(marginLeft); border-left: \(borderLeft)px solid #F60; padding-left: \(paddingLeft)px;\">" +
+            "<div class=\"comment\" style=\"border-left: \(borderLeft)px solid #F60; padding-left: \(paddingLeft)px;\">" +
                 "<header>" +
                     "\(headerPrefix)<strong>\(self.getUser())</strong>, <em>\(self.getTimeAgo())</em>" +
                 "</header>" +
