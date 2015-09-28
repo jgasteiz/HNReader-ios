@@ -12,19 +12,20 @@ class StoryCommentsViewController: UIViewController {
     
     var hnStoriesTask = HNStoriesTask()
     
+    var commentList: NSArray = NSArray()
+    
     var storyTitle: String?
     var storyId: Int?
     
-    @IBOutlet weak var content: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.automaticallyAdjustsScrollViewInsets = false
-        
+
         self.navigationItem.title = self.storyTitle
         
         fetchComments()
     }
+    
+    @IBOutlet weak var commentsContent: UIWebView!
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -32,15 +33,34 @@ class StoryCommentsViewController: UIViewController {
     }
     
     func fetchComments() {
-        hnStoriesTask.getStory(self.storyId!, onTaskDone: onGetPostsSuccess, onTaskError: onGetPostsError)
+        hnStoriesTask.getComments(self.storyId!, onTaskDone: onGetPostsSuccess, onTaskError: onGetPostsError)
     }
     
-    func onGetPostsSuccess() {
-        self.content.text = self.hnStoriesTask.storyDetail["comments"]!.description
+    func onGetPostsSuccess(comments: [Comment]) {
+        self.commentList = comments
+        
+        // The horror. Fix this.
+        var htmlContent: String =
+            "<html><head>" +
+                "<style>" +
+                    "* { word-wrap: break-word; font-family: Helvetica; }" +
+                    "p { margin: 10px 0; }" +
+                    ".comment { border-bottom: 1px solid #E0E0E0; padding: 10px 5px; }" +
+                "</style>" +
+            "</head><body>"
+        
+        for comment in comments {
+            htmlContent = "\(htmlContent)\(comment.getContent())"
+        }
+        
+        // The horror. Fix this.
+        htmlContent = "\(htmlContent)</body></html>"
+        
+        commentsContent.loadHTMLString(htmlContent as String, baseURL: nil)
     }
     
     func onGetPostsError() {
-        self.content.text = "Error"
+        // do something!
         
         // Show error message
         let alertController = UIAlertController(title: "Ooops", message:

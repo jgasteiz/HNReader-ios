@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5902E3B21AC1F514008F2B85 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902E3B11AC1F514008F2B85 /* Story.swift */; };
 		5910AE7A1AC33E7700129948 /* StoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5910AE791AC33E7700129948 /* StoryDetailViewController.swift */; };
+		591D67A91BB868D900FBB29C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D67A81BB868D900FBB29C /* Comment.swift */; settings = {ASSET_TAGS = (); }; };
 		59511FC91BB310B90037CE67 /* HNStoriesTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59511FC81BB310B90037CE67 /* HNStoriesTask.swift */; settings = {ASSET_TAGS = (); }; };
 		59511FCD1BB4943F0037CE67 /* StoryCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59511FCC1BB4943F0037CE67 /* StoryCommentsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		59C4EB971ABB437C008E152E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C4EB961ABB437C008E152E /* AppDelegate.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		5902E3B11AC1F514008F2B85 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		5910AE791AC33E7700129948 /* StoryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryDetailViewController.swift; sourceTree = "<group>"; };
+		591D67A81BB868D900FBB29C /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		59511FC81BB310B90037CE67 /* HNStoriesTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNStoriesTask.swift; sourceTree = "<group>"; };
 		59511FCA1BB4877F0037CE67 /* HNReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HNReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59511FCB1BB4877F0037CE67 /* HNReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HNReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +46,7 @@
 		59C4EBA01ABB437C008E152E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		59C4EBAB1ABB437D008E152E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59C4EBAC1ABB437D008E152E /* HNReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNReaderTests.swift; sourceTree = "<group>"; };
+		59D63B081BB8059B007E63F3 /* HN-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HN-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,9 +67,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5998374D1BB816C200085F6D /* Libaries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libaries;
+			sourceTree = "<group>";
+		};
 		59C4EB881ABB437C008E152E = {
 			isa = PBXGroup;
 			children = (
+				5998374D1BB816C200085F6D /* Libaries */,
 				59C4EB931ABB437C008E152E /* HNReader */,
 				59C4EBA91ABB437D008E152E /* HNReaderTests */,
 				59511FCA1BB4877F0037CE67 /* HNReader.app */,
@@ -87,6 +98,8 @@
 				5910AE791AC33E7700129948 /* StoryDetailViewController.swift */,
 				59511FC81BB310B90037CE67 /* HNStoriesTask.swift */,
 				59511FCC1BB4943F0037CE67 /* StoryCommentsViewController.swift */,
+				59D63B081BB8059B007E63F3 /* HN-Bridging-Header.h */,
+				591D67A81BB868D900FBB29C /* Comment.swift */,
 			);
 			path = HNReader;
 			sourceTree = "<group>";
@@ -221,6 +234,7 @@
 			files = (
 				59511FCD1BB4943F0037CE67 /* StoryCommentsViewController.swift in Sources */,
 				59C4EB991ABB437C008E152E /* TableViewController.swift in Sources */,
+				591D67A91BB868D900FBB29C /* Comment.swift in Sources */,
 				5910AE7A1AC33E7700129948 /* StoryDetailViewController.swift in Sources */,
 				59511FC91BB310B90037CE67 /* HNStoriesTask.swift in Sources */,
 				59C4EB971ABB437C008E152E /* AppDelegate.swift in Sources */,
@@ -366,7 +380,9 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.javiman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HNReader/HN-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USER_HEADER_SEARCH_PATHS = "Libaries/**";
 			};
 			name = Debug;
 		};
@@ -390,6 +406,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.javiman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HNReader/HN-Bridging-Header.h";
+				USER_HEADER_SEARCH_PATHS = "Libaries/**";
 			};
 			name = Release;
 		};

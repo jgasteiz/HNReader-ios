@@ -3,28 +3,30 @@ import Foundation
 class HNStoriesTask {
     
     let topNewsURL: NSURL
-    let storyURL: NSURL
+    let baseStoryURL: String
     var storiesArray: [Story] = []
-    var storyDetail: NSDictionary = NSDictionary()
     
     init() {
         topNewsURL = NSURL(string: "http://node-hnapi-javiman.herokuapp.com/news")!
-        storyURL = NSURL(string: "http://node-hnapi.herokuapp.com/item/10272483")!
+        baseStoryURL = "http://node-hnapi-javiman.herokuapp.com/item/"
     }
     
-    func getStory (id: Int, onTaskDone: () -> Void, onTaskError: () -> Void) {
+    func getComments (id: Int, onTaskDone: (comments: [Comment]) -> Void, onTaskError: () -> Void) {
+        
+        let storyUrl = NSURL(string: "\(baseStoryURL)\(id)") as NSURL!
+        
         // Get the top stories form the API
         let sharedSession = NSURLSession.sharedSession()
-        let downloadTask: NSURLSessionDownloadTask = sharedSession.downloadTaskWithURL(storyURL, completionHandler: { (location: NSURL?, response: NSURLResponse?, error: NSError?) -> Void in
+        let downloadTask: NSURLSessionDownloadTask = sharedSession.downloadTaskWithURL(storyUrl, completionHandler: { (location: NSURL?, response: NSURLResponse?, error: NSError?) -> Void in
             
             if error == nil {
                 // Get the url content as NSData
                 let dataObject = NSData(contentsOfURL: location!)
-                // Get the story
-                self.storyDetail = (try! NSJSONSerialization.JSONObjectWithData(dataObject!, options: [])) as! NSDictionary
+                // Get the story comments
+                let comments: [Comment] = self.getCommentsFromData(dataObject!)
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    onTaskDone()
+                    onTaskDone(comments: comments)
                 })
             } else {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -59,6 +61,36 @@ class HNStoriesTask {
         downloadTask.resume()
     }
     
+    func getCommentsFromData(dataObject: NSData) -> [Comment] {
+        let storyObject: NSDictionary = (try! NSJSONSerialization.JSONObjectWithData(dataObject, options: [])) as! NSDictionary
+        let allComments: [Comment] = getComments(storyObject, comments: [])
+        return allComments
+    }
+    
+    func getComments (comment: NSDictionary, var comments: [Comment]) -> [Comment] {
+        
+        for commentObject in comment["comments"] as! NSArray {
+            
+            let newComment = Comment(
+                id: commentObject["id"] as? Int,
+                level: commentObject["level"] as? Int,
+                user: commentObject["user"] as? String,
+                timeAgo: commentObject["time_ago"] as? String,
+                content: commentObject["content"] as? String,
+                comments: []
+            )
+            
+            comments.append(newComment)
+            
+            if commentObject["comments"] != nil {
+                comments = comments + getComments(commentObject as! NSDictionary, comments: [])
+            }
+        }
+        
+        
+        return comments
+    }
+    
     func getStoriesFromData(dataObject: NSData) -> [Story] {
         var storiesArray:[Story] = []
         
@@ -74,7 +106,8 @@ class HNStoriesTask {
                 type: storyObject["type"] as? String,
                 url: storyObject["url"] as? String,
                 points: storyObject["points"] as? Int,
-                commentsCount: storyObject["comments_count"] as? Int
+                commentsCount: storyObject["comments_count"] as? Int,
+                comments: []
             )
             
             storiesArray.append(story)
