@@ -16,6 +16,8 @@ class TableViewController: UITableViewController {
     
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
 
+    @IBOutlet weak var moreStoriesButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -101,10 +103,12 @@ class TableViewController: UITableViewController {
         // If the stories are the first thirty, load them as they come
         if firstThirtyStories == true {
             self.storyList = stories
+            moreStoriesButton.enabled = true
         }
         // Otherwise, append them to the existing ones
         else {
             self.storyList = self.storyList + stories
+            moreStoriesButton.enabled = false
         }
         
         tableView.reloadData()
