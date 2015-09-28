@@ -20,9 +20,8 @@ class Story {
     var url: String?
     var points: Int?
     var commentsCount: Int?
-    var comments: [Comment]?
     
-    init(id: Int?, title: String?, user: String?, timeAgo: String?, type: String?, url: String?, points: Int?, commentsCount: Int?, comments: [Comment]?) {
+    init(id: Int?, title: String?, user: String?, timeAgo: String?, type: String?, url: String?, points: Int?, commentsCount: Int?) {
         self.id = id
         self.title = title
         self.user = user
@@ -31,7 +30,6 @@ class Story {
         self.url = url
         self.points = points
         self.commentsCount = commentsCount
-        self.comments = comments
     }
     
     ////////////////////////////
@@ -70,10 +68,6 @@ class Story {
     
     func getCommentsCount() -> Int {
         return self.commentsCount != nil ? self.commentsCount! : 0
-    }
-    
-    func getComments() -> [Comment] {
-        return self.comments != nil ? self.comments! : []
     }
     
     ////////////////////////////
