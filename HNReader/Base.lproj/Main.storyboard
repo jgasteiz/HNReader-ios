@@ -123,7 +123,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <items>
                                 <barButtonItem style="plain" systemItem="flexibleSpace" id="a8l-Ah-zvq"/>
-                                <barButtonItem title="More stories" id="Xmc-AO-bOT">
+                                <barButtonItem enabled="NO" title="More stories" id="Xmc-AO-bOT">
                                     <connections>
                                         <action selector="moreStories:" destination="VvQ-Tw-JwX" id="mw7-2A-nI3"/>
                                     </connections>
