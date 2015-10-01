@@ -33,7 +33,7 @@ class StoryCommentsViewController: UIViewController {
     }
     
     func fetchComments() {
-        hnStoriesTask.getComments(self.storyId!, onTaskDone: onGetPostsSuccess, onTaskError: onGetPostsError)
+        hnStoriesTask.getStoryComments(self.storyId!, onTaskDone: onGetPostsSuccess, onTaskError: onGetPostsError)
     }
     
     func onGetPostsSuccess(comments: [Comment]) {

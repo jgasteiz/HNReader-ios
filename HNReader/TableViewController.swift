@@ -15,9 +15,9 @@ class TableViewController: UITableViewController {
     var storyList: [Story] = []
     
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-    
-    @IBOutlet weak var refreshButton: UIBarButtonItem!
 
+    @IBOutlet weak var moreStoriesButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -89,20 +89,35 @@ class TableViewController: UITableViewController {
 
     @IBAction func refreshPosts(sender: AnyObject) {
         activityIndicator.startAnimating()
-        hnStoriesTask.getTopStories(onGetPostsSuccess, onTaskError: onGetPostsError)
+        hnStoriesTask.getTopStories(onStoriesLoadSuccess, onTaskError: onStoriesLoadError)
     }
     
-    func onGetPostsSuccess() {
+    @IBAction func moreStories(sender: AnyObject) {
+        activityIndicator.startAnimating()
+        hnStoriesTask.getNextThirtyStories(onStoriesLoadSuccess, onTaskError: onStoriesLoadError)
+    }
+    
+    func onStoriesLoadSuccess(stories: [Story], firstThirtyStories: Bool) {
         activityIndicator.stopAnimating()
         
-        storyList = self.hnStoriesTask.storiesArray
+        // If the stories are the first thirty, load them as they come
+        if firstThirtyStories == true {
+            self.storyList = stories
+            moreStoriesButton.enabled = true
+        }
+        // Otherwise, append them to the existing ones
+        else {
+            self.storyList = self.storyList + stories
+            moreStoriesButton.enabled = false
+        }
+        
         tableView.reloadData()
     }
     
-    func onGetPostsError() {
+    func onStoriesLoadError() {
         activityIndicator.stopAnimating()
         
-        storyList = []
+        self.storyList = []
         tableView.reloadData()
         
         // Show error message

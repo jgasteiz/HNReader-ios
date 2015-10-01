@@ -16,15 +16,13 @@ class Comment {
     var user: String?
     var timeAgo: String?
     var content: String?
-    var comments: [Comment]?
     
-    init(id: Int?, level: Int?, user: String?, timeAgo: String?, content: String?, comments: [Comment]?) {
+    init(id: Int?, level: Int?, user: String?, timeAgo: String?, content: String?) {
         self.id = id
         self.level = level
         self.user = user
         self.timeAgo = timeAgo
         self.content = content
-        self.comments = comments
     }
     
     ////////////////////////////
@@ -64,10 +62,6 @@ class Comment {
                 "</header>" +
                 "<div>\(commentText)</div>" +
             "</div>"
-    }
-    
-    func getComments() -> [Comment] {
-        return self.comments != nil ? self.comments! : []
     }
     
     //////////////
