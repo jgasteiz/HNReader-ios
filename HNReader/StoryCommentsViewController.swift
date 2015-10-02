@@ -14,13 +14,12 @@ class StoryCommentsViewController: UIViewController {
     
     var commentList: NSArray = NSArray()
     
-    var storyTitle: String?
-    var storyId: Int?
+    var story: Story?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = self.storyTitle
+        self.navigationItem.title = self.story!.getTitle()
         
         fetchComments()
     }
@@ -33,7 +32,7 @@ class StoryCommentsViewController: UIViewController {
     }
     
     func fetchComments() {
-        hnStoriesTask.getStoryComments(self.storyId!, onTaskDone: onGetPostsSuccess, onTaskError: onGetPostsError)
+        hnStoriesTask.getStoryComments(self.story!.getId(), onTaskDone: onGetPostsSuccess, onTaskError: onGetPostsError)
     }
     
     func onGetPostsSuccess(comments: [Comment]) {

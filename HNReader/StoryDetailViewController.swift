@@ -10,21 +10,22 @@ import UIKit
 
 class StoryDetailViewController: UIViewController {
     
-    var storyTitle: String?
-    var storyURL: NSURL?
-    var storyId: Int?
+    var hnStoriesTask = HNStoriesTask()
+    
+    var story: Story?
     
     @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var bottomToolbar: UIToolbar!
 
     @IBAction func shareStory(sender: UIBarButtonItem) {
-        let objectsToShare = [storyURL!]
+        let objectsToShare = [NSURL(string: self.story!.getURL())!]
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         activityVC.popoverPresentationController?.barButtonItem = sender
         self.presentViewController(activityVC, animated: true, completion: nil)
     }
 
     @IBAction func openSafari(sender: AnyObject) {
-        UIApplication.sharedApplication().openURL(storyURL!)
+        UIApplication.sharedApplication().openURL(NSURL(string: self.story!.getURL())!)
     }
     
     
@@ -35,8 +36,7 @@ class StoryDetailViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showComments" {
             let controller = segue.destinationViewController as! StoryCommentsViewController
-            controller.storyTitle = self.storyTitle
-            controller.storyId = self.storyId
+            controller.story = self.story!
         }
     }
     
@@ -44,11 +44,11 @@ class StoryDetailViewController: UIViewController {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
 
-        self.navigationItem.title = storyTitle
-        let request = NSURLRequest(URL: storyURL!)
+        self.navigationItem.title = self.story!.getTitle()
         
-        webView.scalesPageToFit = true
-        webView.loadRequest(request)
+            let request = NSURLRequest(URL: NSURL(string: self.story!.getURL())!)
+            self.webView.scalesPageToFit = true
+            self.webView.loadRequest(request)
     }
 
     override func didReceiveMemoryWarning() {

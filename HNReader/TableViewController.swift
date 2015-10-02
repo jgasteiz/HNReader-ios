@@ -82,9 +82,7 @@ class TableViewController: UITableViewController {
 
                 let controller = segue.destinationViewController as! StoryDetailViewController
                 
-                controller.storyTitle = story.getTitle()
-                controller.storyId = story.getId()
-                controller.storyURL = NSURL(string: story.getURL())
+                controller.story = story
             }
         }
     }
