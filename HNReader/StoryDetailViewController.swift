@@ -46,13 +46,39 @@ class StoryDetailViewController: UIViewController {
 
         self.navigationItem.title = self.story!.getTitle()
         
+        if self.story!.getURL() != "" {
             let request = NSURLRequest(URL: NSURL(string: self.story!.getURL())!)
             self.webView.scalesPageToFit = true
             self.webView.loadRequest(request)
+        } else {
+            // Load story content
+            self.fetchStory()
+            self.bottomToolbar.hidden = true
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func fetchStory() {
+        self.hnStoriesTask.getStoryDetail(self.story!.getId(), onTaskDone: onGetPostsSuccess, onTaskError: onGetPostsError)
+    }
+    
+    func onGetPostsSuccess(story: Story) {
+        self.story = story
+        self.webView.loadHTMLString(self.story!.getContent() as String!, baseURL: nil)
+    }
+    
+    func onGetPostsError() {
+        // do something!
+        
+        // Show error message
+        let alertController = UIAlertController(title: "Ooops", message:
+            "There was an error fetching the top stories. Please, try again later.", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 }
