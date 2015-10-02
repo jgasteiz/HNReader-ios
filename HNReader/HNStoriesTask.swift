@@ -26,6 +26,13 @@ class HNStoriesTask {
         self.fetchStories(nextThirtyURL, firstThirtyStories: false, onTaskDone: onTaskDone, onTaskError: onTaskError)
     }
     
+    // Get a story
+    func getStoryDetail(storyId: Int, onTaskDone: (Story) -> Void, onTaskError: () -> Void) {
+        let storyURL = NSURL(string: "\(baseStoryURL)\(storyId)") as NSURL!
+        
+        self.fetchStory(storyURL, onTaskDone: onTaskDone, onTaskError: onTaskError)
+    }
+    
     // Given an api url, a boolean and callbacks, fetch 30 stories from the API.
     func fetchStories(storiesURL: NSURL, firstThirtyStories: Bool, onTaskDone: ([Story], Bool) -> Void, onTaskError: () -> Void) -> Void {
         
@@ -52,7 +59,8 @@ class HNStoriesTask {
                         type: storyDict["type"] as? String,
                         url: storyDict["url"] as? String,
                         points: storyDict["points"] as? Int,
-                        commentsCount: storyDict["comments_count"] as? Int
+                        commentsCount: storyDict["comments_count"] as? Int,
+                        content: storyDict["content"] as? String
                     ))
                 }
                 
@@ -72,6 +80,42 @@ class HNStoriesTask {
         downloadTask.resume()
     }
     
+    // Fetch a single story
+    func fetchStory(storyURL: NSURL, onTaskDone: (story: Story) -> Void, onTaskError: () -> Void) -> Void {
+        let sharedSession = NSURLSession.sharedSession()
+        let downloadTask: NSURLSessionDownloadTask = sharedSession.downloadTaskWithURL(storyURL, completionHandler: { (location: NSURL?, response: NSURLResponse?, error: NSError?) -> Void in
+            
+            if error == nil {
+                // Get the url content as NSData
+                let dataObject = NSData(contentsOfURL: location!)
+                // Get the story object
+                let storyDict: NSDictionary = (try! NSJSONSerialization.JSONObjectWithData(dataObject!, options: [])) as! NSDictionary
+                
+                let story: Story = Story(
+                    id: storyDict["id"] as? Int,
+                    title: storyDict["title"] as? String,
+                    user: storyDict["user"] as? String,
+                    timeAgo: storyDict["time_ago"] as? String,
+                    type: storyDict["type"] as? String,
+                    url: storyDict["url"] as? String,
+                    points: storyDict["points"] as? Int,
+                    commentsCount: storyDict["comments_count"] as? Int,
+                    content: storyDict["content"] as? String
+                )
+                
+                // Send the list back.
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    onTaskDone(story: story)
+                })
+            } else {
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    onTaskError()
+                })
+            }
+        })
+        downloadTask.resume()
+    }
+    
     ////////////////////////////
     // Comments methods
     ////////////////////////////
@@ -86,7 +130,6 @@ class HNStoriesTask {
     
     func fetchComments(storyURL: NSURL, onTaskDone: (comments: [Comment]) -> Void, onTaskError: () -> Void) -> Void {
         
-        // Get the top stories form the API
         let sharedSession = NSURLSession.sharedSession()
         let downloadTask: NSURLSessionDownloadTask = sharedSession.downloadTaskWithURL(storyURL, completionHandler: { (location: NSURL?, response: NSURLResponse?, error: NSError?) -> Void in
             
