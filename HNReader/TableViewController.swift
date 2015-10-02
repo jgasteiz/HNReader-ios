@@ -23,6 +23,8 @@ class TableViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+//        tableView.estimatedRowHeight = 50
+//        tableView.rowHeight = UITableViewAutomaticDimension
 
         // Initialize spinner
         activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0, 16, 16))
@@ -93,6 +95,7 @@ class TableViewController: UITableViewController {
     }
     
     @IBAction func moreStories(sender: AnyObject) {
+        moreStoriesButton.enabled = false
         activityIndicator.startAnimating()
         hnStoriesTask.getNextThirtyStories(onStoriesLoadSuccess, onTaskError: onStoriesLoadError)
     }

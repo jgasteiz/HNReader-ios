@@ -135,13 +135,19 @@
                                 <rect key="frame" x="0.0" y="86" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="umY-lv-sp0" id="qgO-bw-1Fh">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="110" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3EW-8U-hwP">
-                                            <rect key="frame" x="16" y="7" width="9" height="19"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                            <rect key="frame" x="16" y="7" width="9" height="20"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.40000000000000002" green="0.42745098039215684" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="111" contentMode="left" verticalHuggingPriority="251" text="React Native is now open source and very long" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzP-QU-SOa">
+                                            <rect key="frame" x="29" y="7" width="563" height="19"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="112" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://github.com/facebook/react-native" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7n-2Y-X9L">
@@ -150,26 +156,21 @@
                                             <color key="textColor" red="0.0" green="0.23921568627450981" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="113" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="448 points by peterhunt 3 hours ago · 139 comments" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9O-3Q-qMY">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="113" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="448 points by peterhunt 3 hours ago · 139 comments twice and crazy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9O-3Q-qMY">
                                             <rect key="frame" x="16" y="44" width="576" height="14"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <color key="textColor" red="0.40000000000000002" green="0.42745098039215684" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="111" contentMode="left" verticalHuggingPriority="251" text="React Native is now open source and very long" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzP-QU-SOa">
-                                            <rect key="frame" x="29" y="6.5" width="563" height="20"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="3EW-8U-hwP" firstAttribute="top" secondItem="qgO-bw-1Fh" secondAttribute="topMargin" constant="-1" id="3kf-mJ-gFB"/>
                                         <constraint firstItem="FzP-QU-SOa" firstAttribute="leading" secondItem="3EW-8U-hwP" secondAttribute="trailing" constant="4" id="8ju-mn-BNj"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="L9O-3Q-qMY" secondAttribute="bottom" constant="3.5" id="Cfi-gs-xFQ"/>
                                         <constraint firstItem="FzP-QU-SOa" firstAttribute="trailing" secondItem="qgO-bw-1Fh" secondAttribute="trailingMargin" id="Dvl-rU-7B8"/>
+                                        <constraint firstItem="FzP-QU-SOa" firstAttribute="leading" secondItem="3EW-8U-hwP" secondAttribute="trailing" constant="4" id="J5e-Ps-fPg"/>
                                         <constraint firstItem="G7n-2Y-X9L" firstAttribute="trailing" secondItem="qgO-bw-1Fh" secondAttribute="trailingMargin" id="Kfe-RW-vEZ"/>
-                                        <constraint firstItem="FzP-QU-SOa" firstAttribute="top" secondItem="qgO-bw-1Fh" secondAttribute="topMargin" constant="-1.5" id="Kpb-0b-8fb"/>
-                                        <constraint firstItem="G7n-2Y-X9L" firstAttribute="top" secondItem="3EW-8U-hwP" secondAttribute="bottom" constant="2" id="TEj-RL-otd"/>
+                                        <constraint firstItem="FzP-QU-SOa" firstAttribute="top" secondItem="qgO-bw-1Fh" secondAttribute="topMargin" constant="-1" id="ZHV-Gg-9Tb"/>
                                         <constraint firstItem="L9O-3Q-qMY" firstAttribute="leading" secondItem="qgO-bw-1Fh" secondAttribute="leadingMargin" constant="8" id="dPr-QT-JG9"/>
                                         <constraint firstItem="G7n-2Y-X9L" firstAttribute="leading" secondItem="qgO-bw-1Fh" secondAttribute="leadingMargin" constant="8" id="gCG-eC-bQy"/>
                                         <constraint firstItem="L9O-3Q-qMY" firstAttribute="top" secondItem="G7n-2Y-X9L" secondAttribute="bottom" constant="2" id="gbp-0x-0Ob"/>
