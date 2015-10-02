@@ -23,8 +23,8 @@ class TableViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-//        tableView.estimatedRowHeight = 50
-//        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 50
+        tableView.rowHeight = UITableViewAutomaticDimension
 
         // Initialize spinner
         activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0, 16, 16))
@@ -69,7 +69,7 @@ class TableViewController: UITableViewController {
         }
         
         // No comment count until it's possible to view the comments in the app.
-        descriptionLabel.text = "\(descriptionLabel.text!), \(story.getTimeAgo()) - \(story.getCommentsCount()) comments"
+        descriptionLabel.text = "\(descriptionLabel.text!), \(story.getTimeAgo()), \(story.getCommentsCount()) comments"
         
         return cell
     }
