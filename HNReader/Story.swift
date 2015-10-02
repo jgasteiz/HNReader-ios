@@ -10,8 +10,6 @@ import Foundation
 
 class Story {
     
-    let hackerWebURL = "http://cheeaun.github.io/hackerweb/#/item/"
-    
     var id: Int?
     var title: String?
     var user: String?
@@ -20,8 +18,9 @@ class Story {
     var url: String?
     var points: Int?
     var commentsCount: Int?
+    var content: String?
     
-    init(id: Int?, title: String?, user: String?, timeAgo: String?, type: String?, url: String?, points: Int?, commentsCount: Int?) {
+    init(id: Int?, title: String?, user: String?, timeAgo: String?, type: String?, url: String?, points: Int?, commentsCount: Int?, content: String?) {
         self.id = id
         self.title = title
         self.user = user
@@ -30,6 +29,7 @@ class Story {
         self.url = url
         self.points = points
         self.commentsCount = commentsCount
+        self.content = content
     }
     
     ////////////////////////////
@@ -56,10 +56,10 @@ class Story {
     }
     
     func getURL() -> String {
-        if self.url! != "" {
-            return self.url!
+        if self.url! == "item?id=\(self.getId())" {
+            return ""
         }
-        return "\(self.hackerWebURL)\(self.getId())"
+        return self.url!
     }
     
     func getPoints() -> Int {
@@ -68,6 +68,10 @@ class Story {
     
     func getCommentsCount() -> Int {
         return self.commentsCount != nil ? self.commentsCount! : 0
+    }
+    
+    func getContent() -> String {
+        return self.content != nil ? self.content! : ""
     }
     
     ////////////////////////////
