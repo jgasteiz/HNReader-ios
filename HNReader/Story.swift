@@ -83,6 +83,46 @@ class Story {
         return self.content != nil ? self.content! : ""
     }
     
+    // Get the post content as HTML, if it has any.
+    func getHTMLContent() -> String {
+        if self.content == nil {
+            return ""
+        }
+        
+        return "\(self.getHTMLHead())\(self.getContent())\(self.getHTMLClose())"
+    }
+    
+    // Get the post comments as HTML, if it has any.
+    func getHTMLComments() -> String {
+        if self.comments.count == 0 {
+            return ""
+        }
+        
+        var htmlContent: String = ""
+        
+        for comment in self.comments {
+            htmlContent = "\(htmlContent)\(comment.getContent())"
+        }
+        
+        return "\(self.getHTMLHead())\(htmlContent)\(self.getHTMLClose())"
+    }
+    
+    // Return the top tags and styles of a HTML document.
+    func getHTMLHead() -> String {
+        return "<html><head>" +
+            "<style>" +
+            "* { word-wrap: break-word; font-family: Helvetica; }" +
+            "p { margin: 10px 0; }" +
+            ".comment { border-bottom: 1px solid #E0E0E0; padding: 10px 5px; }" +
+            "</style>" +
+        "</head><body>"
+    }
+    
+    // Return the closing tags of a HTML document.
+    func getHTMLClose() -> String {
+        return "</body></html>"
+    }
+    
     ////////////////////////////
     // Other helper functions
     ////////////////////////////
