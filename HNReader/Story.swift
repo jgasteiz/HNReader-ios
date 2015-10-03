@@ -19,6 +19,7 @@ class Story {
     var points: Int?
     var commentsCount: Int?
     var content: String?
+    var comments: [Comment] = []
     
     init(id: Int?, title: String?, user: String?, timeAgo: String?, type: String?, url: String?, points: Int?, commentsCount: Int?, content: String?) {
         self.id = id
