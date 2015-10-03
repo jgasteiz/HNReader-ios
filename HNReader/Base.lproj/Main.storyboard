@@ -9,7 +9,7 @@
         <!--Story-->
         <scene sceneID="lyg-O0-7js">
             <objects>
-                <viewController id="fgl-kl-gt6" customClass="StoryDetailViewController" customModule="HNReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fgl-kl-gt6" customClass="StoryDetailController" customModule="HNReader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jn4-IE-9Cd"/>
                         <viewControllerLayoutGuide type="bottom" id="66r-2c-sIm"/>
@@ -79,7 +79,7 @@
         <!--Story-->
         <scene sceneID="qe7-kV-UpZ">
             <objects>
-                <viewController id="OF7-RI-oiw" customClass="StoryCommentsViewController" customModule="HNReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OF7-RI-oiw" customClass="StoryDetailCommentsController" customModule="HNReader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ISu-jw-BEV"/>
                         <viewControllerLayoutGuide type="bottom" id="ktx-98-kma"/>
@@ -119,7 +119,7 @@
         <!--Top Stories-->
         <scene sceneID="Lu2-aj-oT1">
             <objects>
-                <tableViewController id="VvQ-Tw-JwX" customClass="TableViewController" customModule="HNReader" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="VvQ-Tw-JwX" customClass="StoriesController" customModule="HNReader" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="22" sectionFooterHeight="22" id="iiw-KT-Ig0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
