@@ -63,12 +63,12 @@ class StoryDetailViewController: UIViewController {
     }
     
     func fetchStory() {
-        self.hnStoriesTask.getStoryDetail(self.story!.getId(), onTaskDone: onGetPostsSuccess, onTaskError: onGetPostsError)
+        self.hnStoriesTask.getStoryDetail(self.story!.getId(), onTaskDone: onGetStorySuccess, onTaskError: onGetPostsError)
     }
     
-    func onGetPostsSuccess(story: Story) {
+    func onGetStorySuccess(story: Story) {
         self.story = story
-        self.webView.loadHTMLString(self.story!.getContent() as String!, baseURL: nil)
+        self.webView.loadHTMLString(self.story!.getHTMLContent() as String!, baseURL: nil)
     }
     
     func onGetPostsError() {

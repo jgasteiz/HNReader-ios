@@ -12,8 +12,6 @@ class StoryCommentsViewController: UIViewController {
     
     var hnStoriesTask = HNStoriesTask()
     
-    var commentList: NSArray = NSArray()
-    
     var story: Story?
     
     override func viewDidLoad() {
@@ -32,35 +30,15 @@ class StoryCommentsViewController: UIViewController {
     }
     
     func fetchComments() {
-        hnStoriesTask.getStoryComments(self.story!.getId(), onTaskDone: onGetPostsSuccess, onTaskError: onGetPostsError)
+        hnStoriesTask.getStoryComments(self.story!.getId(), onTaskDone: onGetCommentsSuccess, onTaskError: onGetPostsError)
     }
     
-    func onGetPostsSuccess(comments: [Comment]) {
-        self.commentList = comments
-        
-        // The horror. Fix this.
-        var htmlContent: String =
-            "<html><head>" +
-                "<style>" +
-                    "* { word-wrap: break-word; font-family: Helvetica; }" +
-                    "p { margin: 10px 0; }" +
-                    ".comment { border-bottom: 1px solid #E0E0E0; padding: 10px 5px; }" +
-                "</style>" +
-            "</head><body>"
-        
-        for comment in comments {
-            htmlContent = "\(htmlContent)\(comment.getContent())"
-        }
-        
-        // The horror. Fix this.
-        htmlContent = "\(htmlContent)</body></html>"
-        
-        commentsContent.loadHTMLString(htmlContent as String, baseURL: nil)
+    func onGetCommentsSuccess(comments: [Comment]) {
+        self.story!.comments = comments
+        commentsContent.loadHTMLString(self.story!.getHTMLComments() as String, baseURL: nil)
     }
     
     func onGetPostsError() {
-        // do something!
-        
         // Show error message
         let alertController = UIAlertController(title: "Ooops", message:
             "There was an error fetching the top stories. Please, try again later.", preferredStyle: UIAlertControllerStyle.Alert)
