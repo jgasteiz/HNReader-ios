@@ -62,6 +62,14 @@ class Story {
         return self.url!
     }
     
+    func getDisplayURL() -> String {
+        if self.url! == "item?id=\(self.getId())" {
+            return ""
+        }
+        let postURL: NSURL = NSURL(string: self.url!)!
+        return postURL.host!
+    }
+    
     func getPoints() -> Int {
         return self.points != nil ? self.points! : 0
     }

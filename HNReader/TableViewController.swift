@@ -60,7 +60,7 @@ class TableViewController: UITableViewController {
         // Set the labels text with the story values
         indexLabel.text = "\(indexPath.row + 1)"
         titleLabel.text = story.getTitle()
-        urlLabel.text = story.getURL()
+        urlLabel.text = story.getDisplayURL()
         descriptionLabel.text = "\(story.getPoints()) points"
         
         // If the story has a user, append it to the description label
