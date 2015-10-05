@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoryDetailCommentsController: UIViewController {
+class StoryCommentsController: UIViewController {
     
     var hnStoriesTask = HNStoriesTask()
     

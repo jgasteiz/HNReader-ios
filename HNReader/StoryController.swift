@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoryDetailController: UIViewController {
+class StoryController: UIViewController {
     
     var hnStoriesTask = HNStoriesTask()
     
@@ -35,7 +35,7 @@ class StoryDetailController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showComments" {
-            let controller = segue.destinationViewController as! StoryDetailCommentsController
+            let controller = segue.destinationViewController as! StoryCommentsController
             controller.story = self.story!
         }
     }

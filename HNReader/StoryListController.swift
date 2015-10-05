@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoriesController: UITableViewController {
+class StoryListController: UITableViewController {
     
     var hnStoriesTask = HNStoriesTask()
     
@@ -80,7 +80,7 @@ class StoriesController: UITableViewController {
                 
                 let story: Story = self.storyList[indexPath.row]
 
-                let controller = segue.destinationViewController as! StoryDetailController
+                let controller = segue.destinationViewController as! StoryController
                 
                 controller.story = story
             }
