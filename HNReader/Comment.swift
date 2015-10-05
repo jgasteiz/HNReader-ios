@@ -44,6 +44,19 @@ class Comment {
         return self.timeAgo != nil ? self.timeAgo! : ""
     }
     
+    func getTextHeader() -> String {
+        if self.getLevel() == 0 {
+            return "\(self.getUser()), \(self.getTimeAgo())"
+        } else {
+            return "⤷ \(self.getUser()), \(self.getTimeAgo())"
+        }
+    }
+    
+    func getTextContent() -> String {
+        let commentText = self.content != nil ? self.content! : ""
+        return self.html2String(commentText)
+    }
+    
     func getContent() -> String {
         let commentText = self.content != nil ? self.content! : ""
         

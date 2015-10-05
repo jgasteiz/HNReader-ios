@@ -81,37 +81,54 @@
         <scene sceneID="qe7-kV-UpZ">
             <objects>
                 <viewController id="OF7-RI-oiw" customClass="StoryCommentsController" customModule="HNReader" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ISu-jw-BEV"/>
-                        <viewControllerLayoutGuide type="bottom" id="ktx-98-kma"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oS4-iZ-fSd">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wrs-Vb-VHl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sR5-9t-cax">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </webView>
-                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ktx-98-kma" firstAttribute="top" secondItem="sR5-9t-cax" secondAttribute="bottom" id="0u1-X7-sy1"/>
-                            <constraint firstItem="sR5-9t-cax" firstAttribute="trailing" secondItem="oS4-iZ-fSd" secondAttribute="trailingMargin" constant="20" id="IKT-3S-Vei"/>
-                            <constraint firstItem="sR5-9t-cax" firstAttribute="top" secondItem="oS4-iZ-fSd" secondAttribute="topMargin" constant="20" id="qn9-OX-WHb"/>
-                            <constraint firstItem="sR5-9t-cax" firstAttribute="leading" secondItem="oS4-iZ-fSd" secondAttribute="leadingMargin" constant="-20" id="wgy-p6-cWc"/>
-                        </constraints>
-                    </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="68" id="nBM-EP-xAq">
+                                <rect key="frame" x="0.0" y="92" width="600" height="68"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="109" contentMode="center" tableViewCell="nBM-EP-xAq" id="xz0-me-ZzR">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="67.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="110" contentMode="left" horizontalHuggingPriority="251" text="Header" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3KW-th-Q2R">
+                                            <rect key="frame" x="8" y="8" width="584" height="23"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="111" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4t-np-Gbu">
+                                            <rect key="frame" x="8" y="39" width="584" height="20"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="3KW-th-Q2R" firstAttribute="trailing" secondItem="xz0-me-ZzR" secondAttribute="trailingMargin" id="7bc-3u-W79"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="A4t-np-Gbu" secondAttribute="leading" identifier="leading" id="Jc0-rD-CA9"/>
+                                        <constraint firstItem="A4t-np-Gbu" firstAttribute="trailing" secondItem="xz0-me-ZzR" secondAttribute="trailingMargin" id="O6l-94-sxR"/>
+                                        <constraint firstItem="A4t-np-Gbu" firstAttribute="top" secondItem="3KW-th-Q2R" secondAttribute="bottom" constant="8" id="Rqd-kG-IGL"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="3KW-th-Q2R" secondAttribute="leading" identifier="leading" id="TFe-VE-ibk"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="A4t-np-Gbu" secondAttribute="bottom" id="Y7Q-uJ-vbJ"/>
+                                        <constraint firstItem="3KW-th-Q2R" firstAttribute="top" secondItem="xz0-me-ZzR" secondAttribute="topMargin" id="f7R-K4-n4V"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
                     <navigationItem key="navigationItem" title="Story" id="O8u-ud-5sP">
                         <barButtonItem key="backBarButtonItem" title=" " id="8gb-aa-cJf">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="commentsContent" destination="sR5-9t-cax" id="vDR-1h-3zD"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjK-Jx-P4K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
