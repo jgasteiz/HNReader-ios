@@ -57,26 +57,6 @@ class Comment {
         return self.html2String(commentText)
     }
     
-    func getContent() -> String {
-        let commentText = self.content != nil ? self.content! : ""
-        
-        // Calulate the padding left depending on the level
-        let paddingLeft = 5 + self.getLevel() * 5
-        let borderLeft = self.getLevel() * 5
-
-        // If this is a reply, show an arrow before the user name
-        let headerPrefix = self.getLevel() > 0 ? "↳" : ""
-        
-        // The horror. Fix this.
-        return
-            "<div class=\"comment\" style=\"border-left: \(borderLeft)px solid #F60; padding-left: \(paddingLeft)px;\">" +
-                "<header>" +
-                    "\(headerPrefix)<strong>\(self.getUser())</strong>, <em>\(self.getTimeAgo())</em>" +
-                "</header>" +
-                "<div>\(commentText)</div>" +
-            "</div>"
-    }
-    
     //////////////
     // Helpers
     //////////////
