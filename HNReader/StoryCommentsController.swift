@@ -10,6 +10,8 @@ import UIKit
 
 class StoryCommentsController: UITableViewController {
     
+    let reuseIdentifier = "CommentCell"
+    
     var hnStoriesTask = HNStoriesTask()
     
     var story: Story?
@@ -17,42 +19,12 @@ class StoryCommentsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.estimatedRowHeight = 50
         tableView.rowHeight = UITableViewAutomaticDimension
         
         self.navigationItem.title = self.story!.getTitle()
         
         fetchComments()
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.story!.comments.count;
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // Get the table cell
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("CommentCell") as UITableViewCell!
-        
-        let contentView: UIView = cell.viewWithTag(109) as UIView!
-        let headerLabel: UILabel = cell.viewWithTag(110) as! UILabel
-        let contentLabel: UILabel = cell.viewWithTag(111) as! UILabel
-        
-        // Retrieve the story with the cell index.
-        let comment: Comment = self.story!.comments[indexPath.row]
-        
-        // Set the text for the header and the content.
-        headerLabel.text = comment.getTextHeader()
-        contentLabel.text = comment.getTextContent()
-        
-        // Update the leading constraints per comment.
-        for constraint in contentView.constraints {
-            if constraint.identifier == "leading" {
-                constraint.constant = -CGFloat(comment.getLevel() * 15)
-            }
-        }
-        
-        return cell
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,5 +48,30 @@ class StoryCommentsController: UITableViewController {
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
+    }
+}
+
+extension StoryCommentsController {
+    
+    override func tableView(tableView: UITableView, indentationLevelForRowAtIndexPath indexPath: NSIndexPath) -> Int {
+        return self.story!.comments[indexPath.row].getLevel()
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.story!.comments.count;
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // Get the table cell
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath)  as! StoryCommentCell
+        
+        // Retrieve the comment
+        let comment: Comment = self.story!.comments[indexPath.row]
+        
+        // Set the text for the header and the content.
+        cell.header.text = comment.getTextHeader()
+        cell.content.text = comment.getTextContent()
+        
+        return cell
     }
 }
