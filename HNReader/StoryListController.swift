@@ -10,6 +10,8 @@ import UIKit
 
 class StoryListController: UITableViewController {
     
+    let reuseIdentifier = "StoryCell"
+    
     var hnStoriesTask = HNStoriesTask()
     
     var storyList: [Story] = []
@@ -50,6 +52,11 @@ class StoryListController: UITableViewController {
                 
                 controller.story = story
             }
+        } else if segue.identifier == "showComments" {
+            let button = sender as! UIButton
+            let story: Story = self.storyList[button.tag]
+            let controller = segue.destinationViewController as! StoryCommentsController
+            controller.story = story
         }
     }
 
@@ -103,30 +110,27 @@ extension StoryListController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Get the table cell
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("StoryCell") as UITableViewCell!
-        
-        // Get the labels to fill
-        let indexLabel: UILabel = cell.viewWithTag(110) as! UILabel
-        let titleLabel: UILabel = cell.viewWithTag(111) as! UILabel
-        let urlLabel: UILabel = cell.viewWithTag(112) as! UILabel
-        let descriptionLabel: UILabel = cell.viewWithTag(113) as! UILabel
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as! StoryCell
         
         // Retrieve the story with the cell index
         let story = self.storyList[indexPath.row]
         
         // Set the labels text with the story values
-        indexLabel.text = "\(indexPath.row + 1)"
-        titleLabel.text = story.getTitle()
-        urlLabel.text = story.getDisplayURL()
-        descriptionLabel.text = "\(story.getPoints()) points"
+        cell.index.text = "\(indexPath.row + 1)"
+        cell.title.text = story.getTitle()
+        cell.url.text = story.getDisplayURL()
+        cell.subtitle.text = "\(story.getPoints()) points"
+        
+        // Set the button tag as the index row
+        cell.commentsButton.tag = indexPath.row
         
         // If the story has a user, append it to the description label
         if story.hasUser() {
-            descriptionLabel.text = "\(descriptionLabel.text!), by \(story.getUser())"
+            cell.subtitle.text = "\(cell.subtitle.text!), by \(story.getUser())"
         }
         
         // No comment count until it's possible to view the comments in the app.
-        descriptionLabel.text = "\(descriptionLabel.text!), \(story.getTimeAgo()), \(story.getCommentsCount()) comments"
+        cell.subtitle.text = "\(cell.subtitle.text!), \(story.getTimeAgo()), \(story.getCommentsCount()) comments"
         
         return cell
     }

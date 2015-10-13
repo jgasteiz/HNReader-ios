@@ -36,19 +36,16 @@ class Comment {
         return self.level != nil ? self.level! : 0
     }
     
-    func getUser() -> String {
-        return self.user != nil ? self.user! : ""
-    }
-    
     func getTimeAgo() -> String {
         return self.timeAgo != nil ? self.timeAgo! : ""
     }
     
-    func getTextHeader() -> String {
+    func getAuthor() -> String {
+        let user = self.user != nil ? self.user! : ""
         if self.getLevel() == 0 {
-            return "\(self.getUser()), \(self.getTimeAgo())"
+            return "\(user)"
         } else {
-            return "⤷ \(self.getUser()), \(self.getTimeAgo())"
+            return "⤷ \(user)"
         }
     }
     

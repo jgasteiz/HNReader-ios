@@ -10,8 +10,8 @@
 		5902E3B21AC1F514008F2B85 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902E3B11AC1F514008F2B85 /* Story.swift */; };
 		5910AE7A1AC33E7700129948 /* StoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5910AE791AC33E7700129948 /* StoryController.swift */; };
 		591D67A91BB868D900FBB29C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D67A81BB868D900FBB29C /* Comment.swift */; settings = {ASSET_TAGS = (); }; };
+		591F31771BCD92C400C4A53B /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591F31761BCD92C400C4A53B /* StoryCell.swift */; settings = {ASSET_TAGS = (); }; };
 		59511FC91BB310B90037CE67 /* HNStoriesTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59511FC81BB310B90037CE67 /* HNStoriesTask.swift */; settings = {ASSET_TAGS = (); }; };
-		59511FCD1BB4943F0037CE67 /* OldStoryCommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59511FCC1BB4943F0037CE67 /* OldStoryCommentsController.swift */; settings = {ASSET_TAGS = (); }; };
 		59A4F48E1BC30C6400498D0A /* StoryCommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A4F48D1BC30C6400498D0A /* StoryCommentsController.swift */; settings = {ASSET_TAGS = (); }; };
 		59C4EB971ABB437C008E152E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C4EB961ABB437C008E152E /* AppDelegate.swift */; };
 		59C4EB991ABB437C008E152E /* StoryListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C4EB981ABB437C008E152E /* StoryListController.swift */; };
@@ -36,10 +36,10 @@
 		5902E3B11AC1F514008F2B85 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		5910AE791AC33E7700129948 /* StoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryController.swift; sourceTree = "<group>"; };
 		591D67A81BB868D900FBB29C /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		591F31761BCD92C400C4A53B /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
 		59511FC81BB310B90037CE67 /* HNStoriesTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNStoriesTask.swift; sourceTree = "<group>"; };
 		59511FCA1BB4877F0037CE67 /* HNReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HNReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59511FCB1BB4877F0037CE67 /* HNReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HNReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		59511FCC1BB4943F0037CE67 /* OldStoryCommentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldStoryCommentsController.swift; sourceTree = "<group>"; };
 		59A4F48D1BC30C6400498D0A /* StoryCommentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCommentsController.swift; sourceTree = "<group>"; };
 		59C4EB951ABB437C008E152E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59C4EB961ABB437C008E152E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,9 +101,9 @@
 				591D67A81BB868D900FBB29C /* Comment.swift */,
 				59C4EB981ABB437C008E152E /* StoryListController.swift */,
 				5910AE791AC33E7700129948 /* StoryController.swift */,
-				59511FCC1BB4943F0037CE67 /* OldStoryCommentsController.swift */,
 				59A4F48D1BC30C6400498D0A /* StoryCommentsController.swift */,
 				DAB8E9AB1BCCDF8300FCECB9 /* StoryCommentCell.swift */,
+				591F31761BCD92C400C4A53B /* StoryCell.swift */,
 				59511FC81BB310B90037CE67 /* HNStoriesTask.swift */,
 				59D63B081BB8059B007E63F3 /* HN-Bridging-Header.h */,
 			);
@@ -238,12 +238,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59511FCD1BB4943F0037CE67 /* OldStoryCommentsController.swift in Sources */,
 				59C4EB991ABB437C008E152E /* StoryListController.swift in Sources */,
 				591D67A91BB868D900FBB29C /* Comment.swift in Sources */,
 				DAB8E9AC1BCCDF8300FCECB9 /* StoryCommentCell.swift in Sources */,
 				5910AE7A1AC33E7700129948 /* StoryController.swift in Sources */,
 				59511FC91BB310B90037CE67 /* HNStoriesTask.swift in Sources */,
+				591F31771BCD92C400C4A53B /* StoryCell.swift in Sources */,
 				59C4EB971ABB437C008E152E /* AppDelegate.swift in Sources */,
 				59A4F48E1BC30C6400498D0A /* StoryCommentsController.swift in Sources */,
 				5902E3B21AC1F514008F2B85 /* Story.swift in Sources */,
