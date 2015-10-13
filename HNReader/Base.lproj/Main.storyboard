@@ -9,7 +9,7 @@
         <!--Story-->
         <scene sceneID="lyg-O0-7js">
             <objects>
-                <viewController id="fgl-kl-gt6" customClass="StoryController" customModule="HNReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StoryController" id="fgl-kl-gt6" customClass="StoryController" customModule="HNReader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jn4-IE-9Cd"/>
                         <viewControllerLayoutGuide type="bottom" id="66r-2c-sIm"/>
@@ -319,6 +319,6 @@
         <image name="globe" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rUq-17-HMG"/>
+        <segue reference="8WF-OU-ihr"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -34,6 +34,14 @@ class StoryListController: UITableViewController {
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: activityIndicator)
         
+        // Force touch feature
+        if #available(iOS 9.0, *) {
+            if traitCollection.forceTouchCapability == UIForceTouchCapability.Available {
+                // register UIViewControllerPreviewingDelegate to enable Peek & Pop
+                registerForPreviewingWithDelegate(self, sourceView: view)
+            }
+        }
+        
         refreshPosts(self)
     }
     
@@ -133,6 +141,39 @@ extension StoryListController {
         cell.subtitle.text = "\(cell.subtitle.text!), \(story.getTimeAgo()), \(story.getCommentsCount()) comments"
         
         return cell
+    }
+}
+
+
+extension StoryListController : UIViewControllerPreviewingDelegate {
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing,viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        // Obtain the index path and the cell that was pressed.
+        guard let indexPath = tableView.indexPathForRowAtPoint(location),
+            cell = tableView.cellForRowAtIndexPath(indexPath) else { return nil }
+        
+        // Create a destination view controller and set its properties.
+        guard let destinationViewController = storyboard?.instantiateViewControllerWithIdentifier("StoryController") as? StoryController else { return nil }
+        let story: Story = self.storyList[indexPath.row]
+        destinationViewController.story = story
+        
+        /*
+        Set the height of the preview by setting the preferred content size of the destination view controller. Height: 0.0 to get default height
+        */
+        destinationViewController.preferredContentSize = CGSize(width: 0.0, height: 0.0)
+        
+        if #available(iOS 9.0, *) {
+            previewingContext.sourceRect = cell.frame
+        }
+        
+        return destinationViewController
+    }
+    
+    /// Called to let you prepare the presentation of a commit (Pop).
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        // Presents viewControllerToCommit in a primary context
+        showViewController(viewControllerToCommit, sender: self)
     }
 }
 
