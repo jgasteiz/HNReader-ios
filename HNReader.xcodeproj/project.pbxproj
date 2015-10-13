@@ -19,6 +19,7 @@
 		59C4EB9E1ABB437C008E152E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59C4EB9D1ABB437C008E152E /* Images.xcassets */; };
 		59C4EBA11ABB437C008E152E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C4EB9F1ABB437C008E152E /* LaunchScreen.xib */; };
 		59C4EBAD1ABB437D008E152E /* HNReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C4EBAC1ABB437D008E152E /* HNReaderTests.swift */; };
+		DAB8E9AC1BCCDF8300FCECB9 /* StoryCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB8E9AB1BCCDF8300FCECB9 /* StoryCommentCell.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		59C4EBAB1ABB437D008E152E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59C4EBAC1ABB437D008E152E /* HNReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNReaderTests.swift; sourceTree = "<group>"; };
 		59D63B081BB8059B007E63F3 /* HN-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HN-Bridging-Header.h"; sourceTree = "<group>"; };
+		DAB8E9AB1BCCDF8300FCECB9 /* StoryCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCommentCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				5910AE791AC33E7700129948 /* StoryController.swift */,
 				59511FCC1BB4943F0037CE67 /* OldStoryCommentsController.swift */,
 				59A4F48D1BC30C6400498D0A /* StoryCommentsController.swift */,
+				DAB8E9AB1BCCDF8300FCECB9 /* StoryCommentCell.swift */,
 				59511FC81BB310B90037CE67 /* HNStoriesTask.swift */,
 				59D63B081BB8059B007E63F3 /* HN-Bridging-Header.h */,
 			);
@@ -238,6 +241,7 @@
 				59511FCD1BB4943F0037CE67 /* OldStoryCommentsController.swift in Sources */,
 				59C4EB991ABB437C008E152E /* StoryListController.swift in Sources */,
 				591D67A91BB868D900FBB29C /* Comment.swift in Sources */,
+				DAB8E9AC1BCCDF8300FCECB9 /* StoryCommentCell.swift in Sources */,
 				5910AE7A1AC33E7700129948 /* StoryController.swift in Sources */,
 				59511FC91BB310B90037CE67 /* HNStoriesTask.swift in Sources */,
 				59C4EB971ABB437C008E152E /* AppDelegate.swift in Sources */,
