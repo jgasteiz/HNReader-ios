@@ -40,40 +40,6 @@ class StoryListController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.storyList.count;
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // Get the table cell
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("StoryCell") as UITableViewCell!
-        
-        // Get the labels to fill
-        let indexLabel: UILabel = cell.viewWithTag(110) as! UILabel
-        let titleLabel: UILabel = cell.viewWithTag(111) as! UILabel
-        let urlLabel: UILabel = cell.viewWithTag(112) as! UILabel
-        let descriptionLabel: UILabel = cell.viewWithTag(113) as! UILabel
-        
-        // Retrieve the story with the cell index
-        let story = self.storyList[indexPath.row]
-
-        // Set the labels text with the story values
-        indexLabel.text = "\(indexPath.row + 1)"
-        titleLabel.text = story.getTitle()
-        urlLabel.text = story.getDisplayURL()
-        descriptionLabel.text = "\(story.getPoints()) points"
-        
-        // If the story has a user, append it to the description label
-        if story.hasUser() {
-            descriptionLabel.text = "\(descriptionLabel.text!), by \(story.getUser())"
-        }
-        
-        // No comment count until it's possible to view the comments in the app.
-        descriptionLabel.text = "\(descriptionLabel.text!), \(story.getTimeAgo()), \(story.getCommentsCount()) comments"
-        
-        return cell
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow as NSIndexPath! {
@@ -127,6 +93,42 @@ class StoryListController: UITableViewController {
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
+    }
+}
+
+extension StoryListController {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.storyList.count;
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // Get the table cell
+        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("StoryCell") as UITableViewCell!
+        
+        // Get the labels to fill
+        let indexLabel: UILabel = cell.viewWithTag(110) as! UILabel
+        let titleLabel: UILabel = cell.viewWithTag(111) as! UILabel
+        let urlLabel: UILabel = cell.viewWithTag(112) as! UILabel
+        let descriptionLabel: UILabel = cell.viewWithTag(113) as! UILabel
+        
+        // Retrieve the story with the cell index
+        let story = self.storyList[indexPath.row]
+        
+        // Set the labels text with the story values
+        indexLabel.text = "\(indexPath.row + 1)"
+        titleLabel.text = story.getTitle()
+        urlLabel.text = story.getDisplayURL()
+        descriptionLabel.text = "\(story.getPoints()) points"
+        
+        // If the story has a user, append it to the description label
+        if story.hasUser() {
+            descriptionLabel.text = "\(descriptionLabel.text!), by \(story.getUser())"
+        }
+        
+        // No comment count until it's possible to view the comments in the app.
+        descriptionLabel.text = "\(descriptionLabel.text!), \(story.getTimeAgo()), \(story.getCommentsCount()) comments"
+        
+        return cell
     }
 }
 
