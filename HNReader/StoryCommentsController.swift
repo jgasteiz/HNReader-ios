@@ -69,7 +69,8 @@ extension StoryCommentsController {
         let comment: Comment = self.story!.comments[indexPath.row]
         
         // Set the text for the header and the content.
-        cell.header.text = comment.getTextHeader()
+        cell.author.text = comment.getAuthor()
+        cell.timeAgo.text = comment.getTimeAgo()
         cell.content.text = comment.getTextContent()
         
         return cell

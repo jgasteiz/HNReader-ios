@@ -11,7 +11,8 @@ import UIKit
 
 class StoryCommentCell: UITableViewCell {
     
-    @IBOutlet weak var header: UILabel!
+    @IBOutlet weak var author: UILabel!
+    @IBOutlet weak var timeAgo: UILabel!
     @IBOutlet weak var content: UILabel!
     
     override func awakeFromNib() {
