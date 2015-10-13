@@ -1,10 +1,13 @@
 import Foundation
+import RealmSwift
 
 class HNStoriesTask {
     
     let topNewsURL: NSURL
     let nextThirtyURL: NSURL
     let baseStoryURL: String
+    
+    let realm = try! Realm()
     
     init() {
         topNewsURL = NSURL(string: "http://node-hnapi-javiman.herokuapp.com/news")!
@@ -45,29 +48,31 @@ class HNStoriesTask {
                 let dataObject = NSData(contentsOfURL: location!)
                 
                 // Get the stories
-                var stories: [Story] = []
+//                var stories: [Story] = []
                 
                 let storiesArray: NSArray = (try! NSJSONSerialization.JSONObjectWithData(dataObject!, options: [])) as! NSArray
                 
                 // Add the fetched stories to the array
                 for storyDict in storiesArray {
-                    stories.append(Story(
-                        id: storyDict["id"] as? Int,
-                        title: storyDict["title"] as? String,
-                        user: storyDict["user"] as? String,
-                        timeAgo: storyDict["time_ago"] as? String,
-                        type: storyDict["type"] as? String,
-                        url: storyDict["url"] as? String,
-                        points: storyDict["points"] as? Int,
-                        commentsCount: storyDict["comments_count"] as? Int,
-                        content: storyDict["content"] as? String
-                    ))
+                    self.realm.beginWrite()
+                    let story = Story()
+                    story.id = storyDict["id"] as! Int
+                    story.title = storyDict["title"] as! String
+                    story.user = storyDict["user"] as! String
+                    story.timeAgo = storyDict["time_ago"] as! String
+                    story.type = storyDict["type"] as! String
+                    story.url = storyDict["url"] as! String
+                    story.points = storyDict["points"] as! Int
+                    story.commentsCount = storyDict["comments_count"] as! Int
+                    story.content = storyDict["content"] as! String
+                    self.realm.add(story)
+                    self.realm.commitWrite()
                 }
                 
                 // Perform the dispatch async with the fetched stories
                 // and the boolean value of firstThirtyStories.
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    onTaskDone(stories, firstThirtyStories)
+                    onTaskDone([], firstThirtyStories)
                 })
             } else {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -91,17 +96,8 @@ class HNStoriesTask {
                 // Get the story object
                 let storyDict: NSDictionary = (try! NSJSONSerialization.JSONObjectWithData(dataObject!, options: [])) as! NSDictionary
                 
-                let story: Story = Story(
-                    id: storyDict["id"] as? Int,
-                    title: storyDict["title"] as? String,
-                    user: storyDict["user"] as? String,
-                    timeAgo: storyDict["time_ago"] as? String,
-                    type: storyDict["type"] as? String,
-                    url: storyDict["url"] as? String,
-                    points: storyDict["points"] as? Int,
-                    commentsCount: storyDict["comments_count"] as? Int,
-                    content: storyDict["content"] as? String
-                )
+                let story: Story = Story()
+                story.content = storyDict["content"] as! String
                 
                 // Send the list back.
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in

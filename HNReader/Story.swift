@@ -7,85 +7,73 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Story {
+class Story: Object {
     
-    var id: Int?
-    var title: String?
-    var user: String?
-    var timeAgo: String?
-    var type: String?
-    var url: String?
-    var points: Int?
-    var commentsCount: Int?
-    var content: String?
-    var comments: [Comment] = []
-    
-    init(id: Int?, title: String?, user: String?, timeAgo: String?, type: String?, url: String?, points: Int?, commentsCount: Int?, content: String?) {
-        self.id = id
-        self.title = title
-        self.user = user
-        self.timeAgo = timeAgo
-        self.type = type
-        self.url = url
-        self.points = points
-        self.commentsCount = commentsCount
-        self.content = content
-    }
+    dynamic var id = 0
+    dynamic var title = ""
+    dynamic var user = ""
+    dynamic var timeAgo = ""
+    dynamic var type = ""
+    dynamic var url = ""
+    dynamic var points = 0
+    dynamic var commentsCount = 0
+    dynamic var content = ""
     
     ////////////////////////////
     // Getters
     ////////////////////////////
     func getId() -> Int {
-        return self.id != nil ? self.id! : -1
+        return self.id
     }
     
     func getTitle() -> String {
-        return self.title != nil ? self.title! : ""
+        return self.title
     }
     
     func getUser() -> String {
-        return self.user != nil ? self.user! : ""
+        return self.user
     }
     
     func getTimeAgo() -> String {
-        return self.timeAgo != nil ? self.timeAgo! : ""
+        return self.timeAgo
     }
     
     func getType() -> String {
-        return self.type != nil ? self.type! : ""
+        return self.type
     }
     
     func getURL() -> String {
-        if self.url! == "item?id=\(self.getId())" {
+        if self.url == "item?id=\(self.getId())" {
             return ""
         }
-        return self.url!
+        return self.url
     }
     
     func getDisplayURL() -> String {
-        if self.url! == "item?id=\(self.getId())" {
+        if self.url == "item?id=\(self.getId())" {
             return ""
         }
-        let postURL: NSURL = NSURL(string: self.url!)!
+        let postURL: NSURL = NSURL(string: self.url)!
         return postURL.host!
     }
     
     func getPoints() -> Int {
-        return self.points != nil ? self.points! : 0
+        return self.points
     }
     
     func getCommentsCount() -> Int {
-        return self.commentsCount != nil ? self.commentsCount! : 0
+        return self.commentsCount
     }
     
     func getContent() -> String {
-        return self.content != nil ? self.content! : ""
+        return self.content
     }
     
     // Get the post content as HTML, if it has any.
     func getHTMLContent() -> String {
-        if self.content == nil {
+        if self.content == "" {
             return ""
         }
         
@@ -112,7 +100,7 @@ class Story {
     // Other helper functions
     ////////////////////////////
     func hasUser() -> Bool {
-        return self.user != nil
+        return self.user != ""
     }
     
 }

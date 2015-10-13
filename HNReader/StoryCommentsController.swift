@@ -15,6 +15,7 @@ class StoryCommentsController: UITableViewController {
     var hnStoriesTask = HNStoriesTask()
     
     var story: Story?
+    var comments = [Comment]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,7 @@ class StoryCommentsController: UITableViewController {
     }
     
     func onGetCommentsSuccess(comments: [Comment]) {
-        self.story!.comments = comments
+        self.comments = comments
         tableView.reloadData()
     }
     
@@ -54,11 +55,11 @@ class StoryCommentsController: UITableViewController {
 extension StoryCommentsController {
     
     override func tableView(tableView: UITableView, indentationLevelForRowAtIndexPath indexPath: NSIndexPath) -> Int {
-        return self.story!.comments[indexPath.row].getLevel()
+        return self.comments[indexPath.row].getLevel()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.story!.comments.count;
+        return self.comments.count;
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -66,7 +67,7 @@ extension StoryCommentsController {
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath)  as! StoryCommentCell
         
         // Retrieve the comment
-        let comment: Comment = self.story!.comments[indexPath.row]
+        let comment: Comment = self.comments[indexPath.row]
         
         // Set the text for the header and the content.
         cell.author.text = comment.getAuthor()

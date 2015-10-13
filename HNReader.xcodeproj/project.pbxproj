@@ -11,6 +11,8 @@
 		5910AE7A1AC33E7700129948 /* StoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5910AE791AC33E7700129948 /* StoryController.swift */; };
 		591D67A91BB868D900FBB29C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D67A81BB868D900FBB29C /* Comment.swift */; settings = {ASSET_TAGS = (); }; };
 		591F31771BCD92C400C4A53B /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591F31761BCD92C400C4A53B /* StoryCell.swift */; settings = {ASSET_TAGS = (); }; };
+		591F317A1BCDA72F00C4A53B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 591F31781BCDA72F00C4A53B /* Realm.framework */; settings = {ASSET_TAGS = (); }; };
+		591F317B1BCDA72F00C4A53B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 591F31791BCDA72F00C4A53B /* RealmSwift.framework */; settings = {ASSET_TAGS = (); }; };
 		59511FC91BB310B90037CE67 /* HNStoriesTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59511FC81BB310B90037CE67 /* HNStoriesTask.swift */; settings = {ASSET_TAGS = (); }; };
 		59A4F48E1BC30C6400498D0A /* StoryCommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A4F48D1BC30C6400498D0A /* StoryCommentsController.swift */; settings = {ASSET_TAGS = (); }; };
 		59C4EB971ABB437C008E152E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C4EB961ABB437C008E152E /* AppDelegate.swift */; };
@@ -37,6 +39,8 @@
 		5910AE791AC33E7700129948 /* StoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryController.swift; sourceTree = "<group>"; };
 		591D67A81BB868D900FBB29C /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		591F31761BCD92C400C4A53B /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
+		591F31781BCDA72F00C4A53B /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		591F31791BCDA72F00C4A53B /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		59511FC81BB310B90037CE67 /* HNStoriesTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNStoriesTask.swift; sourceTree = "<group>"; };
 		59511FCA1BB4877F0037CE67 /* HNReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HNReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59511FCB1BB4877F0037CE67 /* HNReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HNReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				591F317B1BCDA72F00C4A53B /* RealmSwift.framework in Frameworks */,
+				591F317A1BCDA72F00C4A53B /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,17 +77,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5998374D1BB816C200085F6D /* Libaries */ = {
+		5998374D1BB816C200085F6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				591F31781BCDA72F00C4A53B /* Realm.framework */,
+				591F31791BCDA72F00C4A53B /* RealmSwift.framework */,
 			);
-			name = Libaries;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		59C4EB881ABB437C008E152E = {
 			isa = PBXGroup;
 			children = (
-				5998374D1BB816C200085F6D /* Libaries */,
+				5998374D1BB816C200085F6D /* Frameworks */,
 				59C4EB931ABB437C008E152E /* HNReader */,
 				59C4EBA91ABB437D008E152E /* HNReaderTests */,
 				59511FCA1BB4877F0037CE67 /* HNReader.app */,
@@ -396,6 +404,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"Frameworks/**",
 				);
 				INFOPLIST_FILE = HNReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -421,6 +430,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"Frameworks/**",
 				);
 				INFOPLIST_FILE = HNReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
