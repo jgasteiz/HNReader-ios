@@ -7,8 +7,6 @@ class HNStoriesTask {
     let nextThirtyURL: NSURL
     let baseStoryURL: String
     
-    let realm = try! Realm()
-    
     init() {
         topNewsURL = NSURL(string: "http://node-hnapi-javiman.herokuapp.com/news")!
         nextThirtyURL = NSURL(string: "http://node-hnapi-javiman.herokuapp.com/news2")!
@@ -52,22 +50,45 @@ class HNStoriesTask {
                 
                 let storiesArray: NSArray = (try! NSJSONSerialization.JSONObjectWithData(dataObject!, options: [])) as! NSArray
                 
+                let realm = try! Realm()
+                
+                realm.beginWrite()
+                realm.deleteAll()
+                
                 // Add the fetched stories to the array
-                for storyDict in storiesArray {
-                    self.realm.beginWrite()
+                for (index, storyDict) in storiesArray.enumerate() {
+                    
                     let story = Story()
+                    
+                    story.storyIndex = index
                     story.id = storyDict["id"] as! Int
                     story.title = storyDict["title"] as! String
-                    story.user = storyDict["user"] as! String
-                    story.timeAgo = storyDict["time_ago"] as! String
-                    story.type = storyDict["type"] as! String
-                    story.url = storyDict["url"] as! String
-                    story.points = storyDict["points"] as! Int
-                    story.commentsCount = storyDict["comments_count"] as! Int
-                    story.content = storyDict["content"] as! String
-                    self.realm.add(story)
-                    self.realm.commitWrite()
+                    
+                    let user = storyDict["user"] as? String
+                    story.user = user != nil ? user! : ""
+                    
+                    let timeAgo = storyDict["time_ago"] as? String
+                    story.timeAgo = timeAgo != nil ? timeAgo! : ""
+                    
+                    let type = storyDict["type"] as? String
+                    story.type = type != nil ? type! : ""
+                    
+                    let url = storyDict["url"] as? String
+                    story.url = url != nil ? url! : ""
+                    
+                    let points = storyDict["points"] as? Int
+                    story.points = points != nil ? points! : 0
+                    
+                    let commentsCount = storyDict["comments_count"] as? Int
+                    story.commentsCount = commentsCount != nil ? commentsCount! : 0
+                    
+                    let content = storyDict["content"] as? String
+                    story.content = content != nil ? content! : ""
+                    
+                    realm.add(story)
                 }
+                
+                realm.commitWrite()
                 
                 // Perform the dispatch async with the fetched stories
                 // and the boolean value of firstThirtyStories.

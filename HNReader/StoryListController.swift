@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import Realm
+import RealmSwift
 
 class StoryListController: UITableViewController {
+    
+    let realm = try! Realm()
     
     let reuseIdentifier = "StoryCell"
     
@@ -82,16 +86,22 @@ class StoryListController: UITableViewController {
     func onStoriesLoadSuccess(stories: [Story], firstThirtyStories: Bool) {
         activityIndicator.stopAnimating()
         
-        // If the stories are the first thirty, load them as they come
-        if firstThirtyStories == true {
-            self.storyList = stories
-            moreStoriesButton.enabled = true
+        let allStories = realm.objects(Story) //.sorted("storyIndex")
+        self.storyList = []
+        for story in allStories {
+            self.storyList.append(story)
         }
-        // Otherwise, append them to the existing ones
-        else {
-            self.storyList = self.storyList + stories
-            moreStoriesButton.enabled = false
-        }
+        
+//        // If the stories are the first thirty, load them as they come
+//        if firstThirtyStories == true {
+//            self.storyList = stories
+//            moreStoriesButton.enabled = true
+//        }
+//        // Otherwise, append them to the existing ones
+//        else {
+//            self.storyList = self.storyList + stories
+//            moreStoriesButton.enabled = false
+//        }
         
         tableView.reloadData()
     }

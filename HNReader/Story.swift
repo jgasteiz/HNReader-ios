@@ -12,6 +12,7 @@ import RealmSwift
 class Story: Object {
     
     dynamic var id = 0
+    dynamic var storyIndex = 0
     dynamic var title = ""
     dynamic var user = ""
     dynamic var timeAgo = ""
