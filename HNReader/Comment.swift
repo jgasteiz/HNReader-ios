@@ -51,7 +51,7 @@ class Comment {
     
     func getTextContent() -> String {
         let commentText = self.content != nil ? self.content! : ""
-        return self.html2String(commentText)
+        return self.html2String(commentText).stringByReplacingOccurrencesOfString("\n", withString: "\n\n", options: NSStringCompareOptions.LiteralSearch, range: nil)
     }
     
     //////////////
