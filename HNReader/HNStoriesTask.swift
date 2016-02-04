@@ -122,9 +122,7 @@ class HNStoriesTask {
     
     // Given a story id, fetch all of its comments.
     func getStoryComments (storyId: Int, onTaskDone: (comments: [Comment]) -> Void, onTaskError: () -> Void) -> Void {
-        
         let storyURL = NSURL(string: "\(baseStoryURL)\(storyId)") as NSURL!
-        
         self.fetchComments(storyURL, onTaskDone: onTaskDone, onTaskError: onTaskError)
     }
     

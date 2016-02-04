@@ -9,17 +9,17 @@
 /* Begin PBXBuildFile section */
 		5902E3B21AC1F514008F2B85 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5902E3B11AC1F514008F2B85 /* Story.swift */; };
 		5910AE7A1AC33E7700129948 /* StoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5910AE791AC33E7700129948 /* StoryController.swift */; };
-		591D67A91BB868D900FBB29C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D67A81BB868D900FBB29C /* Comment.swift */; settings = {ASSET_TAGS = (); }; };
-		591F31771BCD92C400C4A53B /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591F31761BCD92C400C4A53B /* StoryCell.swift */; settings = {ASSET_TAGS = (); }; };
-		59511FC91BB310B90037CE67 /* HNStoriesTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59511FC81BB310B90037CE67 /* HNStoriesTask.swift */; settings = {ASSET_TAGS = (); }; };
-		59A4F48E1BC30C6400498D0A /* StoryCommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A4F48D1BC30C6400498D0A /* StoryCommentsController.swift */; settings = {ASSET_TAGS = (); }; };
+		591D67A91BB868D900FBB29C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591D67A81BB868D900FBB29C /* Comment.swift */; };
+		591F31771BCD92C400C4A53B /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591F31761BCD92C400C4A53B /* StoryCell.swift */; };
+		59511FC91BB310B90037CE67 /* HNStoriesTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59511FC81BB310B90037CE67 /* HNStoriesTask.swift */; };
+		59A4F48E1BC30C6400498D0A /* StoryCommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A4F48D1BC30C6400498D0A /* StoryCommentsController.swift */; };
 		59C4EB971ABB437C008E152E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C4EB961ABB437C008E152E /* AppDelegate.swift */; };
 		59C4EB991ABB437C008E152E /* StoryListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C4EB981ABB437C008E152E /* StoryListController.swift */; };
 		59C4EB9C1ABB437C008E152E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59C4EB9A1ABB437C008E152E /* Main.storyboard */; };
 		59C4EB9E1ABB437C008E152E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59C4EB9D1ABB437C008E152E /* Images.xcassets */; };
 		59C4EBA11ABB437C008E152E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C4EB9F1ABB437C008E152E /* LaunchScreen.xib */; };
 		59C4EBAD1ABB437D008E152E /* HNReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C4EBAC1ABB437D008E152E /* HNReaderTests.swift */; };
-		DAB8E9AC1BCCDF8300FCECB9 /* StoryCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB8E9AB1BCCDF8300FCECB9 /* StoryCommentCell.swift */; settings = {ASSET_TAGS = (); }; };
+		DAB8E9AC1BCCDF8300FCECB9 /* StoryCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB8E9AB1BCCDF8300FCECB9 /* StoryCommentCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -398,6 +398,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = HNReader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -423,6 +424,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = HNReader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

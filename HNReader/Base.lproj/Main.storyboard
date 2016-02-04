@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ANC-wR-kRI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ANC-wR-kRI">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -20,12 +20,10 @@
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E7z-VG-bjj">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flH-ym-qdr">
                                 <rect key="frame" x="4" y="556" width="592" height="44"/>
-                                <animations/>
                                 <items>
                                     <barButtonItem image="globe" id="MS9-8E-HjV" userLabel="Open in browser">
                                         <color key="tintColor" red="0.96078431369999995" green="0.48627450979999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -50,7 +48,6 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="flH-ym-qdr" secondAttribute="trailing" constant="-16" id="9bI-Iy-2lW"/>
@@ -84,7 +81,6 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wrs-Vb-VHl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="68" id="nBM-EP-xAq" customClass="StoryCommentCell" customModule="HNReader" customModuleProvider="target">
@@ -95,48 +91,35 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="110" contentMode="left" horizontalHuggingPriority="251" text="author" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3KW-th-Q2R">
-                                            <rect key="frame" x="8" y="8" width="48" height="24"/>
-                                            <animations/>
+                                            <rect key="frame" x="8" y="8" width="48" height="19.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.74901960784313726" green="0.13333333333333333" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="111" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4t-np-Gbu">
                                             <rect key="frame" x="8" y="40" width="584" height="19"/>
-                                            <animations/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timeAgo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YlJ-MD-xch">
                                             <rect key="frame" x="532" y="8" width="60" height="19"/>
-                                            <animations/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.40000000000000002" green="0.42745098039215684" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <animations/>
                                     <constraints>
-                                        <constraint firstItem="YlJ-MD-xch" firstAttribute="top" secondItem="xz0-me-ZzR" secondAttribute="topMargin" constant="3" id="4qZ-za-w6n"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="A4t-np-Gbu" secondAttribute="leading" identifier="leading" id="Jc0-rD-CA9"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="YlJ-MD-xch" secondAttribute="trailing" id="LiM-yT-5xq"/>
                                         <constraint firstItem="A4t-np-Gbu" firstAttribute="trailing" secondItem="xz0-me-ZzR" secondAttribute="trailingMargin" id="O6l-94-sxR"/>
-                                        <constraint firstItem="YlJ-MD-xch" firstAttribute="top" secondItem="xz0-me-ZzR" secondAttribute="topMargin" constant="5" id="R01-Dt-uwT"/>
-                                        <constraint firstItem="A4t-np-Gbu" firstAttribute="top" secondItem="3KW-th-Q2R" secondAttribute="bottom" constant="8" id="Rqd-kG-IGL"/>
+                                        <constraint firstItem="A4t-np-Gbu" firstAttribute="top" secondItem="xz0-me-ZzR" secondAttribute="topMargin" constant="32" id="RbG-IS-tO4"/>
                                         <constraint firstItem="YlJ-MD-xch" firstAttribute="top" secondItem="xz0-me-ZzR" secondAttribute="topMargin" id="SgR-lf-JH2"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="3KW-th-Q2R" secondAttribute="leading" identifier="leading" id="TFe-VE-ibk"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="A4t-np-Gbu" secondAttribute="bottom" id="Y7Q-uJ-vbJ"/>
                                         <constraint firstItem="3KW-th-Q2R" firstAttribute="top" secondItem="xz0-me-ZzR" secondAttribute="topMargin" id="f7R-K4-n4V"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="YlJ-MD-xch" secondAttribute="trailing" id="krk-dr-dIK"/>
                                     </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="4qZ-za-w6n"/>
-                                            <exclude reference="R01-Dt-uwT"/>
-                                        </mask>
-                                    </variation>
                                 </tableViewCellContentView>
-                                <animations/>
                                 <connections>
                                     <outlet property="author" destination="3KW-th-Q2R" id="kLL-cp-TJZ"/>
                                     <outlet property="content" destination="A4t-np-Gbu" id="siL-Fs-JxN"/>
@@ -162,12 +145,10 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="22" sectionFooterHeight="22" id="iiw-KT-Ig0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="FnH-DU-wBE">
                             <rect key="frame" x="0.0" y="156" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            <animations/>
                             <items>
                                 <barButtonItem style="plain" systemItem="flexibleSpace" id="a8l-Ah-zvq"/>
                                 <barButtonItem enabled="NO" title="More stories" id="Xmc-AO-bOT">
@@ -187,7 +168,6 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="110" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3EW-8U-hwP">
                                             <rect key="frame" x="8" y="7" width="20" height="20"/>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="LDu-7n-J6a"/>
                                                 <constraint firstAttribute="width" constant="20" id="Stk-08-Iff"/>
@@ -198,21 +178,18 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="112" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://github.com/facebook/react-native" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7n-2Y-X9L">
                                             <rect key="frame" x="36" y="28" width="506" height="14"/>
-                                            <animations/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <color key="textColor" red="0.0" green="0.23921568627450981" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="113" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="448 points by peterhunt 3 hours ago · 139 comments twice and crazy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9O-3Q-qMY">
                                             <rect key="frame" x="36" y="44" width="506" height="14"/>
-                                            <animations/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <color key="textColor" red="0.40000000000000002" green="0.42745098039215684" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIc-pg-WUS">
                                             <rect key="frame" x="550" y="2" width="50" height="66"/>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="AMd-wf-r63"/>
                                                 <constraint firstAttribute="height" constant="66" id="IEf-ej-hEQ"/>
@@ -225,13 +202,11 @@
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="111" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="React Native is now open source and very long" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzP-QU-SOa">
                                             <rect key="frame" x="36" y="7" width="506" height="19"/>
-                                            <animations/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <animations/>
                                     <constraints>
                                         <constraint firstItem="wIc-pg-WUS" firstAttribute="centerY" secondItem="qgO-bw-1Fh" secondAttribute="centerY" id="2Cb-8J-Krk"/>
                                         <constraint firstItem="wIc-pg-WUS" firstAttribute="leading" secondItem="FzP-QU-SOa" secondAttribute="trailing" constant="8" id="2WU-7v-ybz"/>
@@ -259,7 +234,6 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
-                                <animations/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="commentsButton" destination="wIc-pg-WUS" id="hm9-0G-t5M"/>
@@ -300,7 +274,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="cXP-Fd-j63">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.96078431369999995" green="0.48627450979999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
