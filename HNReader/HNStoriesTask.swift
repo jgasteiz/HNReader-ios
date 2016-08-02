@@ -7,9 +7,9 @@ class HNStoriesTask {
     let baseStoryURL: String
     
     init() {
-        topNewsURL = NSURL(string: "http://node-hnapi-javiman.herokuapp.com/news")!
-        nextThirtyURL = NSURL(string: "http://node-hnapi-javiman.herokuapp.com/news2")!
-        baseStoryURL = "http://node-hnapi-javiman.herokuapp.com/item/"
+        topNewsURL = NSURL(string: "https://api.hackerwebapp.com/news")!
+        nextThirtyURL = NSURL(string: "https://api.hackerwebapp.com/news2")!
+        baseStoryURL = "https://api.hackerwebapp.com/item/"
     }
     
     ////////////////////////////
