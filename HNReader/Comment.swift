@@ -36,45 +36,22 @@ class Comment {
         return self.level != nil ? self.level! : 0
     }
     
-    func getUser() -> String {
-        return self.user != nil ? self.user! : ""
-    }
-    
     func getTimeAgo() -> String {
         return self.timeAgo != nil ? self.timeAgo! : ""
     }
     
-    func getTextHeader() -> String {
+    func getAuthor() -> String {
+        let user = self.user != nil ? self.user! : ""
         if self.getLevel() == 0 {
-            return "\(self.getUser()), \(self.getTimeAgo())"
+            return "\(user)"
         } else {
-            return "⤷ \(self.getUser()), \(self.getTimeAgo())"
+            return "⤷ \(user)"
         }
     }
     
     func getTextContent() -> String {
         let commentText = self.content != nil ? self.content! : ""
-        return self.html2String(commentText)
-    }
-    
-    func getContent() -> String {
-        let commentText = self.content != nil ? self.content! : ""
-        
-        // Calulate the padding left depending on the level
-        let paddingLeft = 5 + self.getLevel() * 5
-        let borderLeft = self.getLevel() * 5
-
-        // If this is a reply, show an arrow before the user name
-        let headerPrefix = self.getLevel() > 0 ? "↳" : ""
-        
-        // The horror. Fix this.
-        return
-            "<div class=\"comment\" style=\"border-left: \(borderLeft)px solid #F60; padding-left: \(paddingLeft)px;\">" +
-                "<header>" +
-                    "\(headerPrefix)<strong>\(self.getUser())</strong>, <em>\(self.getTimeAgo())</em>" +
-                "</header>" +
-                "<div>\(commentText)</div>" +
-            "</div>"
+        return self.html2String(commentText).stringByReplacingOccurrencesOfString("\n", withString: "\n\n", options: NSStringCompareOptions.LiteralSearch, range: nil)
     }
     
     //////////////

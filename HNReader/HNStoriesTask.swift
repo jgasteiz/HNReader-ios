@@ -7,9 +7,9 @@ class HNStoriesTask {
     let baseStoryURL: String
     
     init() {
-        topNewsURL = NSURL(string: "http://node-hnapi-javiman.herokuapp.com/news")!
-        nextThirtyURL = NSURL(string: "http://node-hnapi-javiman.herokuapp.com/news2")!
-        baseStoryURL = "http://node-hnapi-javiman.herokuapp.com/item/"
+        topNewsURL = NSURL(string: "https://api.hackerwebapp.com/news")!
+        nextThirtyURL = NSURL(string: "https://api.hackerwebapp.com/news2")!
+        baseStoryURL = "https://api.hackerwebapp.com/item/"
     }
     
     ////////////////////////////
@@ -122,9 +122,7 @@ class HNStoriesTask {
     
     // Given a story id, fetch all of its comments.
     func getStoryComments (storyId: Int, onTaskDone: (comments: [Comment]) -> Void, onTaskError: () -> Void) -> Void {
-        
         let storyURL = NSURL(string: "\(baseStoryURL)\(storyId)") as NSURL!
-        
         self.fetchComments(storyURL, onTaskDone: onTaskDone, onTaskError: onTaskError)
     }
     
