@@ -68,7 +68,7 @@ class StoryController: UIViewController {
     
     func onGetStorySuccess(story: Story) {
         self.story = story
-        self.webView.loadHTMLString(self.story!.getHTMLContent() as String!, baseURL: nil)
+        self.webView.loadHTMLString(self.story!.getHTML() as String!, baseURL: nil)
     }
     
     func onGetPostsError() {
