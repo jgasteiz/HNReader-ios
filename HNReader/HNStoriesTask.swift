@@ -156,13 +156,15 @@ class HNStoriesTask {
     // Given a comment NSDictionary, which could have more comments, return
     // a single level list of all the comments and their children,
     // in hierarchical order.
-    func getAllComments (comment: NSDictionary, var comments: [Comment]) -> [Comment] {
+    func getAllComments (comment: NSDictionary, comments: [Comment]) -> [Comment] {
+        
+        var commentList = comments;
         
         // Loop through the comment dictionary comments
         for commentObject in comment["comments"] as! NSArray {
             
             // Create a new comment and add it to the general list of comments
-            comments.append(Comment(
+            commentList.append(Comment(
                 id: commentObject["id"] as? Int,
                 level: commentObject["level"] as? Int,
                 user: commentObject["user"] as? String,
@@ -172,12 +174,12 @@ class HNStoriesTask {
             
             // If the comment has comments, fetch them and add them to the list.
             if commentObject["comments"] != nil {
-                comments = comments + self.getAllComments(commentObject as! NSDictionary, comments: [])
+                commentList = commentList + self.getAllComments(commentObject as! NSDictionary, comments: [])
             }
         }
         
         // Return all the comments for the given comment.
-        return comments
+        return commentList;
     }
     
 }
