@@ -14,6 +14,8 @@ class StoryListController: UITableViewController {
     
     var hnStoriesTask = HNStoriesTask()
     
+    var lastUpdated: NSDate?
+    
     var storyList: [Story] = []
     
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
@@ -22,7 +24,6 @@ class StoryListController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.estimatedRowHeight = 50
@@ -41,8 +42,25 @@ class StoryListController: UITableViewController {
                 registerForPreviewingWithDelegate(self, sourceView: view)
             }
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
-        refreshPosts(self)
+        if let lastUpdated = lastUpdated {
+            let now = NSDate()
+            let difference = NSCalendar.currentCalendar().components(NSCalendarUnit.Second, fromDate: lastUpdated, toDate: now, options: [])
+            
+            // Don't update more than once per two minutes.
+            if difference.second < 120 {
+                return
+            }
+        }
+        
+        // Fetch the files and directories in the current directory.
+        activityIndicator.startAnimating()
+        hnStoriesTask.getTopStories(onStoriesLoadSuccess, onTaskError: onStoriesLoadError)
+        lastUpdated = NSDate()
     }
     
     override func didReceiveMemoryWarning() {
@@ -66,11 +84,6 @@ class StoryListController: UITableViewController {
             let controller = segue.destinationViewController as! StoryCommentsController
             controller.story = story
         }
-    }
-
-    @IBAction func refreshPosts(sender: AnyObject) {
-        activityIndicator.startAnimating()
-        hnStoriesTask.getTopStories(onStoriesLoadSuccess, onTaskError: onStoriesLoadError)
     }
     
     @IBAction func moreStories(sender: AnyObject) {

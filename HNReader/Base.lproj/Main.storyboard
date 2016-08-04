@@ -250,14 +250,7 @@
                             <outlet property="delegate" destination="VvQ-Tw-JwX" id="Nmp-Rf-za9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Top Stories" id="TZi-z5-TFn">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="PoL-5U-VPe">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="refreshPosts:" destination="VvQ-Tw-JwX" id="9hD-WV-JcN"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Top Stories" id="TZi-z5-TFn"/>
                     <connections>
                         <outlet property="moreStoriesButton" destination="Xmc-AO-bOT" id="tjW-hV-bFe"/>
                     </connections>
@@ -292,6 +285,6 @@
         <image name="globe" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8WF-OU-ihr"/>
+        <segue reference="rUq-17-HMG"/>
     </inferredMetricsTieBreakers>
 </document>
