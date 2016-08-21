@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10102" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ANC-wR-kRI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ANC-wR-kRI">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10080"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -67,7 +67,6 @@
                     <connections>
                         <outlet property="bottomToolbar" destination="flH-ym-qdr" id="KZh-Tn-lvO"/>
                         <outlet property="webView" destination="E7z-VG-bjj" id="TN0-cK-57M"/>
-                        <segue destination="OF7-RI-oiw" kind="show" identifier="showComments" id="8WF-OU-ihr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ny4-Qj-GHk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -84,14 +83,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="68" id="nBM-EP-xAq" customClass="StoryCommentCell" customModule="HNReader" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="68"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="109" contentMode="center" tableViewCell="nBM-EP-xAq" id="xz0-me-ZzR">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="67.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="67"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="110" contentMode="left" horizontalHuggingPriority="251" text="author" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3KW-th-Q2R">
-                                            <rect key="frame" x="8" y="8" width="48" height="19.5"/>
+                                            <rect key="frame" x="8" y="8" width="48" height="20"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.74901960784313726" green="0.13333333333333333" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -136,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjK-Jx-P4K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2411" y="571"/>
+            <point key="canvasLocation" x="2411" y="453"/>
         </scene>
         <!--Top Stories-->
         <scene sceneID="Lu2-aj-oT1">
@@ -163,85 +162,61 @@
                                 <rect key="frame" x="0.0" y="86" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="umY-lv-sp0" id="qgO-bw-1Fh">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="110" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3EW-8U-hwP">
-                                            <rect key="frame" x="8" y="7" width="20" height="20"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="20" id="LDu-7n-J6a"/>
-                                                <constraint firstAttribute="width" constant="20" id="Stk-08-Iff"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                            <color key="textColor" red="0.40000000000000002" green="0.42745098039215684" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="112" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://github.com/facebook/react-native" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7n-2Y-X9L">
-                                            <rect key="frame" x="36" y="28" width="506" height="14"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                            <color key="textColor" red="0.0" green="0.23921568627450981" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="113" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="448 points by peterhunt 3 hours ago · 139 comments twice and crazy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9O-3Q-qMY">
-                                            <rect key="frame" x="36" y="44" width="506" height="14"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                            <color key="textColor" red="0.40000000000000002" green="0.42745098039215684" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIc-pg-WUS">
-                                            <rect key="frame" x="550" y="2" width="50" height="66"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="50" id="AMd-wf-r63"/>
-                                                <constraint firstAttribute="height" constant="66" id="IEf-ej-hEQ"/>
-                                            </constraints>
-                                            <color key="tintColor" red="0.69803921568627447" green="0.27843137254901962" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
-                                            <state key="normal" title="Comments" image="comments"/>
-                                            <connections>
-                                                <segue destination="OF7-RI-oiw" kind="show" identifier="showComments" id="rUq-17-HMG"/>
-                                            </connections>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="111" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="React Native is now open source and very long" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzP-QU-SOa">
-                                            <rect key="frame" x="36" y="7" width="506" height="19"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QsN-3J-KOe">
+                                            <rect key="frame" x="8" y="8" width="584" height="45"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="110" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3EW-8U-hwP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="dy8-53-KQh"/>
+                                                        <constraint firstAttribute="width" constant="20" id="vsY-o0-5wb"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.42745098039215684" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="63T-ND-PrP">
+                                                    <rect key="frame" x="30" y="0.0" width="554" height="45"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="111" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" text="React Native is now open source and very long" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzP-QU-SOa">
+                                                            <rect key="frame" x="0.0" y="0.0" width="348" height="13"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="112" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="https://github.com/facebook/react-native" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7n-2Y-X9L">
+                                                            <rect key="frame" x="0.0" y="15" width="221" height="14"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                            <color key="textColor" red="0.0" green="0.23921568627450981" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="113" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="448 points by peterhunt 3 hours ago · 139 comments twice and crazy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9O-3Q-qMY">
+                                                            <rect key="frame" x="0.0" y="31" width="373" height="14"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                            <color key="textColor" red="0.40000000000000002" green="0.42745098039215684" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="wIc-pg-WUS" firstAttribute="centerY" secondItem="qgO-bw-1Fh" secondAttribute="centerY" id="2Cb-8J-Krk"/>
-                                        <constraint firstItem="wIc-pg-WUS" firstAttribute="leading" secondItem="FzP-QU-SOa" secondAttribute="trailing" constant="8" id="2WU-7v-ybz"/>
-                                        <constraint firstItem="3EW-8U-hwP" firstAttribute="top" secondItem="qgO-bw-1Fh" secondAttribute="topMargin" constant="-1" id="3kf-mJ-gFB"/>
-                                        <constraint firstItem="L9O-3Q-qMY" firstAttribute="leading" secondItem="3EW-8U-hwP" secondAttribute="trailing" constant="8" id="89s-TF-kF7"/>
-                                        <constraint firstItem="L9O-3Q-qMY" firstAttribute="top" secondItem="G7n-2Y-X9L" secondAttribute="bottom" constant="2" id="8MQ-AN-ok8"/>
-                                        <constraint firstAttribute="trailing" secondItem="wIc-pg-WUS" secondAttribute="trailing" constant="8" id="9GJ-Nv-WFx"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="L9O-3Q-qMY" secondAttribute="bottom" constant="3.5" id="Cfi-gs-xFQ"/>
-                                        <constraint firstItem="wIc-pg-WUS" firstAttribute="centerY" secondItem="qgO-bw-1Fh" secondAttribute="centerY" id="Ixs-qh-uda"/>
-                                        <constraint firstItem="FzP-QU-SOa" firstAttribute="top" secondItem="qgO-bw-1Fh" secondAttribute="topMargin" constant="-1" id="JIi-4A-Myo"/>
-                                        <constraint firstAttribute="trailing" secondItem="wIc-pg-WUS" secondAttribute="trailing" id="JWQ-fw-GO4"/>
-                                        <constraint firstItem="FzP-QU-SOa" firstAttribute="leading" secondItem="3EW-8U-hwP" secondAttribute="trailing" constant="8" id="VS3-sf-2LQ"/>
-                                        <constraint firstItem="G7n-2Y-X9L" firstAttribute="leading" secondItem="3EW-8U-hwP" secondAttribute="trailing" constant="8" id="cZL-ZX-uir"/>
-                                        <constraint firstItem="wIc-pg-WUS" firstAttribute="centerY" secondItem="qgO-bw-1Fh" secondAttribute="centerY" id="cg7-2B-LY0"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="3EW-8U-hwP" secondAttribute="leading" id="k88-AK-0GA"/>
-                                        <constraint firstItem="wIc-pg-WUS" firstAttribute="leading" secondItem="L9O-3Q-qMY" secondAttribute="trailing" constant="8" id="oLM-dv-har"/>
-                                        <constraint firstItem="G7n-2Y-X9L" firstAttribute="top" secondItem="FzP-QU-SOa" secondAttribute="bottom" constant="2" id="tey-67-uBn"/>
-                                        <constraint firstItem="wIc-pg-WUS" firstAttribute="leading" secondItem="G7n-2Y-X9L" secondAttribute="trailing" constant="8" id="wFm-uP-Xo6"/>
+                                        <constraint firstAttribute="bottom" secondItem="QsN-3J-KOe" secondAttribute="bottom" constant="16" id="Hdn-Eg-9MZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="QsN-3J-KOe" secondAttribute="trailing" constant="8" id="qXz-4m-bp6"/>
+                                        <constraint firstItem="QsN-3J-KOe" firstAttribute="top" secondItem="qgO-bw-1Fh" secondAttribute="top" constant="8" id="rEd-Jq-SMm"/>
+                                        <constraint firstItem="QsN-3J-KOe" firstAttribute="leading" secondItem="qgO-bw-1Fh" secondAttribute="leading" constant="8" id="wd8-3d-LV0"/>
                                     </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="2Cb-8J-Krk"/>
-                                            <exclude reference="9GJ-Nv-WFx"/>
-                                            <exclude reference="Ixs-qh-uda"/>
-                                        </mask>
-                                    </variation>
                                 </tableViewCellContentView>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outlet property="commentsButton" destination="wIc-pg-WUS" id="hm9-0G-t5M"/>
                                     <outlet property="index" destination="3EW-8U-hwP" id="3Aw-8o-Mzh"/>
                                     <outlet property="subtitle" destination="L9O-3Q-qMY" id="W82-MI-UKc"/>
                                     <outlet property="title" destination="FzP-QU-SOa" id="cvZ-JH-a5E"/>
                                     <outlet property="url" destination="G7n-2Y-X9L" id="2vO-nw-axF"/>
-                                    <segue destination="fgl-kl-gt6" kind="show" identifier="showDetail" id="01W-7U-JFq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -284,7 +259,4 @@
         <image name="comments" width="33" height="33"/>
         <image name="globe" width="33" height="33"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="rUq-17-HMG"/>
-    </inferredMetricsTieBreakers>
 </document>

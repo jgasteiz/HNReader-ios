@@ -142,9 +142,6 @@ extension StoryListController {
         cell.url.text = story.getDisplayURL()
         cell.subtitle.text = "\(story.getPoints()) points"
         
-        // Set the button tag as the index row
-        cell.commentsButton.tag = indexPath.row
-        
         // If the story has a user, append it to the description label
         if story.hasUser() {
             cell.subtitle.text = "\(cell.subtitle.text!), by \(story.getUser())"
