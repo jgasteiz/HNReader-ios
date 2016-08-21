@@ -1,5 +1,5 @@
 //
-//  StoryDetailViewController.swift
+//  StoryCommentsVC.swift
 //  HNReader
 //
 //  Created by Javi Manzano on 25/03/2015.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoryCommentsController: UITableViewController {
+class StoryCommentsVC: UITableViewController {
     
     let reuseIdentifier = "CommentCell"
     
@@ -51,7 +51,7 @@ class StoryCommentsController: UITableViewController {
     }
 }
 
-extension StoryCommentsController {
+extension StoryCommentsVC {
     
     override func tableView(tableView: UITableView, indentationLevelForRowAtIndexPath indexPath: NSIndexPath) -> Int {
         return self.story!.comments[indexPath.row].getLevel()

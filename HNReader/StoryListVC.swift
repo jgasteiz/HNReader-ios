@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  StoryListVC.swift
 //  HNReader
 //
 //  Created by Javi Manzano on 19/03/2015.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoryListController: UITableViewController {
+class StoryListVC: UITableViewController {
     
     let reuseIdentifier = "StoryCell"
     
@@ -34,14 +34,6 @@ class StoryListController: UITableViewController {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: activityIndicator)
-        
-        // Force touch feature
-        if #available(iOS 9.0, *) {
-            if traitCollection.forceTouchCapability == UIForceTouchCapability.Available {
-                // register UIViewControllerPreviewingDelegate to enable Peek & Pop
-                registerForPreviewingWithDelegate(self, sourceView: view)
-            }
-        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -63,33 +55,27 @@ class StoryListController: UITableViewController {
         lastUpdated = NSDate()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
+        if segue.identifier == "ShowStoryDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow as NSIndexPath! {
+                let destinationVC = segue.destinationViewController as! StoryWebViewVC
                 
-                let story: Story = self.storyList[indexPath.row]
-
-                let controller = segue.destinationViewController as! StoryController
-                
-                controller.story = story
+                destinationVC.story = self.storyList[indexPath.row]
+                destinationVC.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+                destinationVC.navigationItem.leftItemsSupplementBackButton = true
             }
-        } else if segue.identifier == "showComments" {
-            let button = sender as! UIButton
-            let story: Story = self.storyList[button.tag]
-            let controller = segue.destinationViewController as! StoryCommentsController
-            controller.story = story
         }
     }
     
-    @IBAction func moreStories(sender: AnyObject) {
+    @IBAction func moreStories (sender: AnyObject) {
         moreStoriesButton.enabled = false
         activityIndicator.startAnimating()
         hnStoriesTask.getNextThirtyStories(onStoriesLoadSuccess, onTaskError: onStoriesLoadError)
+    }
+    
+    @IBAction func reloadStories (sender: AnyObject) {
+        activityIndicator.startAnimating()
+        hnStoriesTask.getTopStories(onStoriesLoadSuccess, onTaskError: onStoriesLoadError)
     }
     
     func onStoriesLoadSuccess(stories: [Story], firstThirtyStories: Bool) {
@@ -124,7 +110,7 @@ class StoryListController: UITableViewController {
     }
 }
 
-extension StoryListController {
+extension StoryListVC {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.storyList.count;
     }
@@ -153,37 +139,3 @@ extension StoryListController {
         return cell
     }
 }
-
-
-extension StoryListController : UIViewControllerPreviewingDelegate {
-    
-    func previewingContext(previewingContext: UIViewControllerPreviewing,viewControllerForLocation location: CGPoint) -> UIViewController? {
-        
-        // Obtain the index path and the cell that was pressed.
-        guard let indexPath = tableView.indexPathForRowAtPoint(location),
-            cell = tableView.cellForRowAtIndexPath(indexPath) else { return nil }
-        
-        // Create a destination view controller and set its properties.
-        guard let destinationViewController = storyboard?.instantiateViewControllerWithIdentifier("StoryController") as? StoryController else { return nil }
-        let story: Story = self.storyList[indexPath.row]
-        destinationViewController.story = story
-        
-        /*
-        Set the height of the preview by setting the preferred content size of the destination view controller. Height: 0.0 to get default height
-        */
-        destinationViewController.preferredContentSize = CGSize(width: 0.0, height: 0.0)
-        
-        if #available(iOS 9.0, *) {
-            previewingContext.sourceRect = cell.frame
-        }
-        
-        return destinationViewController
-    }
-    
-    /// Called to let you prepare the presentation of a commit (Pop).
-    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
-        // Presents viewControllerToCommit in a primary context
-        showViewController(viewControllerToCommit, sender: self)
-    }
-}
-

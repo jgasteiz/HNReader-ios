@@ -1,15 +1,26 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ANC-wR-kRI">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A294a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7M9-LP-6ET">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="SF-UI-Display-Regular.otf">
+            <string>SFUIDisplay-Regular</string>
+            <string>SFUIDisplay-Regular</string>
+            <string>SFUIDisplay-Regular</string>
+            <string>SFUIDisplay-Regular</string>
+            <string>SFUIDisplay-Regular</string>
+            <string>SFUIDisplay-Regular</string>
+            <string>SFUIDisplay-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Story-->
         <scene sceneID="lyg-O0-7js">
             <objects>
-                <viewController storyboardIdentifier="StoryController" id="fgl-kl-gt6" customClass="StoryController" customModule="HNReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StoryController" id="fgl-kl-gt6" customClass="StoryWebViewVC" customModule="HNReader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jn4-IE-9Cd"/>
                         <viewControllerLayoutGuide type="bottom" id="66r-2c-sIm"/>
@@ -25,24 +36,18 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flH-ym-qdr">
                                 <rect key="frame" x="4" y="556" width="592" height="44"/>
                                 <items>
-                                    <barButtonItem image="globe" id="MS9-8E-HjV" userLabel="Open in browser">
-                                        <color key="tintColor" red="0.96078431369999995" green="0.48627450979999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="openSafari:" destination="fgl-kl-gt6" id="kNX-fl-rl2"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="jrI-Y9-cRx"/>
                                     <barButtonItem systemItem="action" id="2Vr-eG-WoR">
-                                        <color key="tintColor" red="0.96078431369999995" green="0.48627450979999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="1" green="0.65490196078431373" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="shareStory:" destination="fgl-kl-gt6" id="fgd-kG-jeQ"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="IyU-Xl-n9o"/>
-                                    <barButtonItem image="comments" id="pcu-O4-dbX" userLabel="Comments">
-                                        <color key="tintColor" red="0.96078431369999995" green="0.48627450979999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <barButtonItem title="Read comments" id="pcu-O4-dbX" userLabel="Comments">
+                                        <color key="tintColor" red="1" green="0.65490196078431373" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="viewComments:" destination="fgl-kl-gt6" id="TeM-oc-d61"/>
+                                            <segue destination="OF7-RI-oiw" kind="show" identifier="ShowStoryComments" id="nIf-i6-0Ob"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -60,7 +65,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Story" id="wzM-nX-vcA">
-                        <barButtonItem key="backBarButtonItem" title=" " id="MvT-0I-zF5">
+                        <barButtonItem key="backBarButtonItem" id="MvT-0I-zF5">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
@@ -71,39 +76,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ny4-Qj-GHk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2411" y="-337"/>
+            <point key="canvasLocation" x="2099" y="-119"/>
         </scene>
         <!--Story-->
         <scene sceneID="qe7-kV-UpZ">
             <objects>
-                <viewController id="OF7-RI-oiw" customClass="StoryCommentsController" customModule="HNReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OF7-RI-oiw" customClass="StoryCommentsVC" customModule="HNReader" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wrs-Vb-VHl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="68" id="nBM-EP-xAq" customClass="StoryCommentCell" customModule="HNReader" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="68"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="109" contentMode="center" tableViewCell="nBM-EP-xAq" id="xz0-me-ZzR">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="67"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="67.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="110" contentMode="left" horizontalHuggingPriority="251" text="author" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3KW-th-Q2R">
-                                            <rect key="frame" x="8" y="8" width="48" height="20"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                            <rect key="frame" x="8" y="8" width="45" height="20"/>
+                                            <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="16"/>
                                             <color key="textColor" red="0.74901960784313726" green="0.13333333333333333" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="111" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4t-np-Gbu">
                                             <rect key="frame" x="8" y="40" width="584" height="19"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timeAgo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YlJ-MD-xch">
-                                            <rect key="frame" x="532" y="8" width="60" height="19"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                            <rect key="frame" x="534" y="8" width="58" height="19"/>
+                                            <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="16"/>
                                             <color key="textColor" red="0.40000000000000002" green="0.42745098039215684" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -135,12 +140,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjK-Jx-P4K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2411" y="453"/>
+            <point key="canvasLocation" x="2099" y="726"/>
         </scene>
         <!--Top Stories-->
         <scene sceneID="Lu2-aj-oT1">
             <objects>
-                <tableViewController id="VvQ-Tw-JwX" customClass="StoryListController" customModule="HNReader" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="VvQ-Tw-JwX" customClass="StoryListVC" customModule="HNReader" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="22" sectionFooterHeight="22" id="iiw-KT-Ig0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -158,15 +163,15 @@
                             </items>
                         </toolbar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoryCell" rowHeight="70" id="umY-lv-sp0" customClass="StoryCell" customModule="HNReader" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="StoryCell" rowHeight="70" id="umY-lv-sp0" customClass="StoryCell" customModule="HNReader" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="86" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="umY-lv-sp0" id="qgO-bw-1Fh">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QsN-3J-KOe">
-                                            <rect key="frame" x="8" y="8" width="584" height="45"/>
+                                            <rect key="frame" x="8" y="8" width="551" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="110" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3EW-8U-hwP">
                                                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -174,28 +179,28 @@
                                                         <constraint firstAttribute="height" constant="20" id="dy8-53-KQh"/>
                                                         <constraint firstAttribute="width" constant="20" id="vsY-o0-5wb"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="16"/>
                                                     <color key="textColor" red="0.40000000000000002" green="0.42745098039215684" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="63T-ND-PrP">
-                                                    <rect key="frame" x="30" y="0.0" width="554" height="45"/>
+                                                    <rect key="frame" x="30" y="0.0" width="521" height="45"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="111" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" text="React Native is now open source and very long" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzP-QU-SOa">
-                                                            <rect key="frame" x="0.0" y="0.0" width="348" height="13"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="322" height="12"/>
+                                                            <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="16"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="112" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="https://github.com/facebook/react-native" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7n-2Y-X9L">
-                                                            <rect key="frame" x="0.0" y="15" width="221" height="14"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="112" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="https://github.com/facebook/react-native" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7n-2Y-X9L">
+                                                            <rect key="frame" x="0.0" y="14" width="213" height="15"/>
+                                                            <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="12"/>
                                                             <color key="textColor" red="0.0" green="0.23921568627450981" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="113" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="448 points by peterhunt 3 hours ago · 139 comments twice and crazy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9O-3Q-qMY">
-                                                            <rect key="frame" x="0.0" y="31" width="373" height="14"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="113" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="448 points by peterhunt 3 hours ago · 139 comments twice and crazy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9O-3Q-qMY">
+                                                            <rect key="frame" x="0.0" y="31" width="361" height="15"/>
+                                                            <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="12"/>
                                                             <color key="textColor" red="0.40000000000000002" green="0.42745098039215684" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -217,6 +222,7 @@
                                     <outlet property="subtitle" destination="L9O-3Q-qMY" id="W82-MI-UKc"/>
                                     <outlet property="title" destination="FzP-QU-SOa" id="cvZ-JH-a5E"/>
                                     <outlet property="url" destination="G7n-2Y-X9L" id="2vO-nw-axF"/>
+                                    <segue destination="fgl-kl-gt6" kind="show" identifier="ShowStoryDetail" id="DRO-HF-6Z0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -225,7 +231,13 @@
                             <outlet property="delegate" destination="VvQ-Tw-JwX" id="Nmp-Rf-za9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Top Stories" id="TZi-z5-TFn"/>
+                    <navigationItem key="navigationItem" title="Top Stories" id="XQm-tO-jeC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="cdK-Q2-cTs">
+                            <connections>
+                                <action selector="reloadStories:" destination="VvQ-Tw-JwX" id="7XT-wu-8Lc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="moreStoriesButton" destination="Xmc-AO-bOT" id="tjW-hV-bFe"/>
                     </connections>
@@ -235,28 +247,22 @@
             <point key="canvasLocation" x="1292" y="163"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="aiY-b8-UmN">
+        <scene sceneID="IHl-70-aiD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ANC-wR-kRI" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="cXP-Fd-j63">
+                <navigationController id="7M9-LP-6ET" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bmJ-b1-keT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.96078431369999995" green="0.48627450979999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="1" green="0.65490196078431373" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
-                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="VvQ-Tw-JwX" kind="relationship" relationship="rootViewController" id="ZMb-1U-Gn6"/>
+                        <segue destination="VvQ-Tw-JwX" kind="relationship" relationship="rootViewController" id="Zvg-na-fsh"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VgF-3K-5ub" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hv6-hz-3f8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="420" y="163"/>
+            <point key="canvasLocation" x="546" y="163"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="comments" width="33" height="33"/>
-        <image name="globe" width="33" height="33"/>
-    </resources>
 </document>
